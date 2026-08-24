@@ -97,13 +97,6 @@ jobs:
             git submodule update --init --recursive
           fi
 
-      - name: Install Node.js dependencies
-        run: |
-          if [[ -f package-lock.json ]]; then
-            echo "Installing Node.js dependencies..."
-            npm ci
-          fi
-
       - name: Cache restore
         id: cache-restore
         uses: actions/cache/restore@v6
