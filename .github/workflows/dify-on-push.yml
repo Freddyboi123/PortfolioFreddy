@@ -3,7 +3,7 @@ name: Sync posts to Dify
 on:
   push:
     branches: [main]
-    paths: ['content/posts/**/*.md']
+    paths: ['content/*.md']
   workflow_dispatch:
 
 permissions:
@@ -37,7 +37,7 @@ jobs:
 
           const git = (...args) => execFileSync('git', args, { encoding: 'utf8' }).split('\n').filter(Boolean);
           const files = process.env.EVENT_NAME === 'workflow_dispatch'
-            ? git('ls-files', 'content/posts')
+            ? git('ls-files', 'content')
             : git('diff', '--name-only', '--diff-filter=ACMR', process.env.BEFORE_SHA, process.env.CURRENT_SHA, '--', 'content');
 
           const markdownFiles = files.filter(file => file.endsWith('.md'));
