@@ -38,7 +38,7 @@ jobs:
           const git = (...args) => execFileSync('git', args, { encoding: 'utf8' }).split('\n').filter(Boolean);
           const files = process.env.EVENT_NAME === 'workflow_dispatch'
             ? git('ls-files', 'content/posts')
-            : git('diff', '--name-only', '--diff-filter=ACMR', process.env.BEFORE_SHA, process.env.CURRENT_SHA, '--', 'content/posts');
+            : git('diff', '--name-only', '--diff-filter=ACMR', process.env.BEFORE_SHA, process.env.CURRENT_SHA, '--', 'content');
 
           const markdownFiles = files.filter(file => file.endsWith('.md'));
           if (!markdownFiles.length) process.exit(0);
