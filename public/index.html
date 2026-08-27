@@ -1,0 +1,764 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"><head>
+	<meta name="generator" content="Hugo 0.164.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>Blowfish</title>
+    <meta name="title" content="Blowfish">
+  
+
+  
+  
+  
+  
+  
+    
+  
+    
+  
+    
+  
+  
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/">
+  
+  
+    
+      <link rel="alternate" type="application/rss+xml" href="/index.xml" title="Blowfish" />
+  
+    
+      <link rel="alternate" type="application/json" href="/index.json" title="Blowfish" />
+  
+
+  
+  
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/">
+	<meta property="og:site_name" content="Blowfish">
+	<meta property="og:title" content="index">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="website">
+
+  
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="index">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.259a7bf840d03869d0bf2536dc58b147a13bf4544ea6207b7b66861b2594f7addb5437c77e4d565f938de415d5132c255e0e1aea96fbd1ee9ba17c5886df51ad.css"
+    integrity="sha512-JZp7&#43;EDQOGnQvyU23FixR6E79FROpiB7e2aGGyWU963bVDfHfk1WX5ON5BXVEywlXg4a6pb70e6boXxYht9RrQ==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.764f412f07ea715415e9123a5eb5f355429502d0b760146b9bcab854bc50829dee14488594acd935dfcdc6a0fe7e6d14d7bee914ebb9272b251aa238cb52c4dd.js"
+    integrity="sha512-dk9BLwfqcVQV6RI6XrXzVUKVAtC3YBRrm8q4VLxQgp3uFEiFlKzZNd/NxqD&#43;fm0U177pFOu5JyslGqI4y1LE3Q=="></script>
+  
+
+
+  
+  
+  
+  
+  
+  
+    
+    <script defer src="/lib/zoom/zoom.min.umd.b4b722fcb5d42f34f52b30a92f3521b69f403ca9d96d0d6179eb537cb870f5d83fdf1fe836688d95d5c99fefbda4170487711006e56051fa67ea00da10521721.js" integrity="sha512-tLci/LXULzT1KzCpLzUhtp9APKnZbQ1heetTfLhw9dg/3x/oNmiNldXJn&#43;&#43;9pBcEh3EQBuVgUfpn6gDaEFIXIQ=="></script>
+    
+    <script defer src="/js/medium-zoom.7f76d937fbb793f3703fedc60ee1e6345259cf2ada403d1876b806fffeaeb2ba6fc594eaccad75c96d5d2425e9fb833748bf1221b4d90d3cf78cf073e104f814.js" integrity="sha512-f3bZN/u3k/NwP&#43;3GDuHmNFJZzyraQD0YdrgG//6usrpvxZTqzK11yW1dJCXp&#43;4M3SL8SIbTZDTz3jPBz4QT4FA=="></script>
+  
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+    
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.99f39627b4e89544b263cce4eca1b0e27f7d2939c95ac76fec7aec92b4e87de1bffe6eefa8e2987b505891dfecefa32982e737fbe32233fc3e8d63b934da501b.js"
+      integrity="sha512-mfOWJ7TolUSyY8zk7KGw4n99KTnJWsdv7HrskrTofeG//m7vqOKYe1BYkd/s76Mpguc3&#43;&#43;MiM/w&#43;jWO5NNpQGw=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "http://localhost:1313/",
+    "name": "Blowfish",
+    
+    "inLanguage": "en",
+    "url": "http://localhost:1313/",
+    
+    "publisher" : {
+      "@type": "Person",
+      "name": ""
+    }
+  }
+  </script>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral bf-scrollbar">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        Skip to main content
+      </a>
+    </div>
+    <header>
+      
+      
+        <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
+  
+  
+    <a href="/" class="text-base font-medium truncate min-w-0 shrink">
+      Blowfish
+    </a>
+  
+  <div class="flex items-center ms-auto">
+    <div class="hidden md:flex">
+      <nav aria-label="Main menu" class="flex items-center gap-x-5 h-12">
+  
+
+  
+
+  
+
+  
+    <div class="flex items-center">
+      <button
+        id="appearance-switcher"
+        aria-label="Switch to dark appearance"
+        type="button"
+        class="text-sm bf-icon-color-hover"
+        title="Switch to dark appearance">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    </div>
+  
+
+  
+    <button
+      id="search-button"
+      aria-label="Search (/ or ⌘K)"
+      class="flex items-center gap-2 rounded-lg border bf-border-color bf-border-color-hover bg-neutral-100/50 px-2 py-1 text-sm text-neutral-500 transition-colors hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral-400 dark:hover:text-primary-400"
+      title="Search (/ or ⌘K)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      <kbd
+        id="search-shortcut-hint"
+        class="pointer-events-none font-sans text-xs text-neutral-500 dark:text-neutral-400"
+        aria-hidden="true">
+        ⌘K
+      </kbd>
+    </button>
+  
+</nav>
+
+
+
+    </div>
+    <div class="flex md:hidden">
+      
+<div class="mobile-header-row mobile-menu-fullscreen relative flex items-center h-14 gap-4">
+  
+
+  
+    <button
+      id="appearance-switcher-mobile"
+      type="button"
+      aria-label="Switch to dark appearance"
+      title="Switch to dark appearance"
+      class="flex items-center justify-center text-neutral-900 hover:text-primary-600 dark:text-neutral-200 dark:hover:text-primary-400">
+      <div class="dark:hidden">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+      </div>
+      <div class="hidden dark:block">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+      </div>
+    </button>
+  
+
+  
+    <button
+      id="search-button-mobile"
+      aria-label="Search (/ or ⌘K)"
+      class="flex items-center justify-center bf-icon-color-hover"
+      title="Search (/ or ⌘K)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+      
+    </header>
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+    
+    
+      <article class="max-w-full prose dark:prose-invert">
+  
+    <header>
+      <h1>index</h1>
+    </header>
+  
+  <section class="w-full">
+<h1 class="relative group">Welcome 👋
+    <div id="welcome-" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#welcome-" aria-label="Anchor">#</a>
+    </span>
+    
+</h1>
+<p>Hi, I&rsquo;m Frederik.</p>
+<p>Welcome to my website. I&rsquo;m currently building this site with <strong>Hugo</strong> and <strong>Blowfish</strong>.</p>
+<p>More content coming soon.</p>
+
+<h1 class="relative group">Building a Simple Event-Driven System with Redis and Python
+    <div id="building-a-simple-event-driven-system-with-redis-and-python" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#building-a-simple-event-driven-system-with-redis-and-python" aria-label="Anchor">#</a>
+    </span>
+    
+</h1>
+<p>Event-driven architecture is a useful way to build applications where different parts of a system need to react to things happening elsewhere. Instead of having one service directly call another service every time something happens, an application can publish an event and allow other components to decide whether they are interested in it.</p>
+<p>In this post, I’ll look at a small example using <strong>Python</strong> and <strong>Redis</strong> to build a simple event-driven notification system.</p>
+
+<h2 class="relative group">What is Event-Driven Architecture?
+    <div id="what-is-event-driven-architecture" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#what-is-event-driven-architecture" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>In a traditional application, one component might directly call another:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">User
+</span></span><span class="line"><span class="cl">  ↓
+</span></span><span class="line"><span class="cl">Web Application
+</span></span><span class="line"><span class="cl">  ↓
+</span></span><span class="line"><span class="cl">Notification Service
+</span></span><span class="line"><span class="cl">  ↓
+</span></span><span class="line"><span class="cl">Email Provider</span></span></code></pre></div></div>
+<p>This works well for small applications, but the web application becomes increasingly dependent on the notification service.</p>
+<p>With an event-driven approach, the architecture can instead look like this:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">User
+</span></span><span class="line"><span class="cl">  ↓
+</span></span><span class="line"><span class="cl">Web Application
+</span></span><span class="line"><span class="cl">  ↓
+</span></span><span class="line"><span class="cl">Event Broker
+</span></span><span class="line"><span class="cl">  ├── Notification Service
+</span></span><span class="line"><span class="cl">  ├── Analytics Service
+</span></span><span class="line"><span class="cl">  └── Audit Service</span></span></code></pre></div></div>
+<p>The web application only needs to publish an event such as:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">user.registered</span></span></code></pre></div></div>
+<p>Other services can subscribe to that event and perform their own work.</p>
+<p>This creates a useful separation between the producer of an event and the consumers of that event.</p>
+
+<h2 class="relative group">Using Redis as an Event Broker
+    <div id="using-redis-as-an-event-broker" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#using-redis-as-an-event-broker" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>For this example, I’m using <strong>Redis</strong>.</p>
+<p>Redis is commonly known as an in-memory key-value store, but it also provides features that can be useful for event-driven applications. One of those features is <strong>Redis Streams</strong>, which provides a persistent, append-only sequence of messages.</p>
+<p>A simple event might look like this:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event&#34;</span><span class="p">:</span> <span class="s2">&#34;user.registered&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;user_id&#34;</span><span class="p">:</span> <span class="s2">&#34;12345&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;user@example.com&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>The application can add this event to a Redis stream:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">redis</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">client</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">Redis</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">host</span><span class="o">=</span><span class="s2">&#34;localhost&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">port</span><span class="o">=</span><span class="mi">6379</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">decode_responses</span><span class="o">=</span><span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">event</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;event&#34;</span><span class="p">:</span> <span class="s2">&#34;user.registered&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;user_id&#34;</span><span class="p">:</span> <span class="s2">&#34;12345&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">client</span><span class="o">.</span><span class="n">xadd</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;events&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;payload&#34;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span></span></span></code></pre></div></div>
+<p>The important part here is that the application doesn&rsquo;t need to know which services will process the event.</p>
+
+<h2 class="relative group">Consuming Events
+    <div id="consuming-events" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#consuming-events" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>A separate worker can listen for new events:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">messages</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">xread</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="s2">&#34;events&#34;</span><span class="p">:</span> <span class="s2">&#34;$&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="n">block</span><span class="o">=</span><span class="mi">5000</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">stream</span><span class="p">,</span> <span class="n">entries</span> <span class="ow">in</span> <span class="n">messages</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">message_id</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">event</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&#34;payload&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="sa">f</span><span class="s2">&#34;Received event: </span><span class="si">{</span><span class="n">event</span><span class="p">[</span><span class="s1">&#39;event&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span></span></span></code></pre></div></div>
+<p>In a real application, the consumer would probably perform some useful operation instead of simply printing the event.</p>
+<p>For example, a notification service could receive <code>user.registered</code> and send a welcome email.</p>
+<p>An analytics service could receive the same event and record it for reporting.</p>
+<p>An audit service could store the event for future investigation.</p>
+
+<h2 class="relative group">Why Use Events?
+    <div id="why-use-events" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#why-use-events" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>One of the biggest advantages of this approach is that services become less tightly coupled.</p>
+<p>Imagine that the application originally only needs to send welcome emails. Later, we decide that every registration should also be recorded in an analytics system.</p>
+<p>With a tightly coupled architecture, the registration code might need to be changed:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">create_user</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">send_email</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">record_analytics</span><span class="p">()</span></span></span></code></pre></div></div>
+<p>With an event-driven architecture, the registration service can continue publishing:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">user.registered</span></span></code></pre></div></div>
+<p>The analytics service can simply subscribe to that event.</p>
+<p>This makes it easier to add new functionality without modifying the original producer.</p>
+
+<h2 class="relative group">The Problem with Distributed Systems
+    <div id="the-problem-with-distributed-systems" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-problem-with-distributed-systems" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Event-driven systems aren&rsquo;t automatically better, though.</p>
+<p>They introduce their own problems.</p>
+<p>For example, what happens if the notification service crashes after receiving an event?</p>
+<p>This is where concepts such as <strong>message acknowledgement</strong>, <strong>consumer groups</strong>, <strong>retries</strong>, and <strong>idempotency</strong> become important.</p>
+<p>A consumer should ideally be able to process the same event more than once without causing an unexpected result.</p>
+<p>For example, if an event tells a service to charge a customer&rsquo;s credit card, blindly processing the event twice could result in two payments.</p>
+<p>A better design would associate an identifier with each event:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_id&#34;</span><span class="p">:</span> <span class="s2">&#34;8f4c2c&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event&#34;</span><span class="p">:</span> <span class="s2">&#34;payment.created&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;user_id&#34;</span><span class="p">:</span> <span class="s2">&#34;12345&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;amount&#34;</span><span class="p">:</span> <span class="mf">49.99</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>The consumer can then keep track of which event IDs it has already processed.</p>
+
+<h2 class="relative group">A Small Project
+    <div id="a-small-project" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#a-small-project" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>I used these ideas in a small project called <strong>EventBoard</strong>.</p>
+<p>EventBoard is a simple Python application that demonstrates event-driven communication between several services.</p>
+<p>The project contains three main components:</p>
+<ul>
+<li><strong>API Service</strong> — creates users and publishes events.</li>
+<li><strong>Notification Worker</strong> — listens for user events and simulates sending notifications.</li>
+<li><strong>Analytics Worker</strong> — consumes the same events and records basic statistics.</li>
+</ul>
+<p>The architecture looks like this:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">                 ┌────────────────────┐
+</span></span><span class="line"><span class="cl">                 │    Python API      │
+</span></span><span class="line"><span class="cl">                 └─────────┬──────────┘
+</span></span><span class="line"><span class="cl">                           │
+</span></span><span class="line"><span class="cl">                           │ publish
+</span></span><span class="line"><span class="cl">                           ▼
+</span></span><span class="line"><span class="cl">                 ┌────────────────────┐
+</span></span><span class="line"><span class="cl">                 │   Redis Streams    │
+</span></span><span class="line"><span class="cl">                 └───────┬───────┬────┘
+</span></span><span class="line"><span class="cl">                         │       │
+</span></span><span class="line"><span class="cl">                   consume│       │consume
+</span></span><span class="line"><span class="cl">                         ▼       ▼
+</span></span><span class="line"><span class="cl">              ┌──────────────┐ ┌──────────────┐
+</span></span><span class="line"><span class="cl">              │ Notification │ │  Analytics   │
+</span></span><span class="line"><span class="cl">              │    Worker    │ │    Worker    │
+</span></span><span class="line"><span class="cl">              └──────────────┘ └──────────────┘</span></span></code></pre></div></div>
+<p>The project is intentionally small, but it demonstrates several concepts that are useful when designing larger distributed systems.</p>
+<p>It also provides a practical example of how Redis can be used for more than simple caching.</p>
+
+<h2 class="relative group">What I Learned
+    <div id="what-i-learned" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#what-i-learned" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>The biggest lesson from building EventBoard was that event-driven architecture isn&rsquo;t primarily about the technology being used.</p>
+<p>Redis, Kafka, RabbitMQ, and other messaging systems can all be used to implement event-based communication. The more important questions are architectural:</p>
+<ul>
+<li>What events should exist?</li>
+<li>Who owns each event?</li>
+<li>Which services consume them?</li>
+<li>What happens when a consumer fails?</li>
+<li>Can an event safely be processed twice?</li>
+<li>How should failed events be retried?</li>
+<li>How long should events be retained?</li>
+</ul>
+<p>Thinking about these questions early can prevent a simple event system from becoming difficult to maintain later.</p>
+
+<h2 class="relative group">Conclusion
+    <div id="conclusion" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#conclusion" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Event-driven architecture can be a useful approach when an application has multiple independent components that need to react to the same actions.</p>
+<p>For a small application, introducing an event broker may be unnecessary complexity. However, when services need to evolve independently, events can provide a useful boundary between them.</p>
+<p>Redis Streams provides a relatively simple way to experiment with these ideas without immediately introducing a large infrastructure stack.</p>
+<p>The <strong>EventBoard</strong> project is a small example of this approach and is useful as a starting point for experimenting with event-driven systems, Redis Streams, Python workers, retries, and idempotent event processing.</p>
+
+<h3 class="relative group">Related Project
+    <div id="related-project" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#related-project" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p><strong>EventBoard</strong> — A Python and Redis project demonstrating event-driven communication between an API, notification worker, and analytics worker.</p>
+<p>The project can be extended with additional consumers, authentication, persistent databases, Docker containers, and monitoring to explore how the architecture behaves as the system becomes more complex.</p>
+</section>
+</article>
+
+    
+  
+  <section>
+    
+
+
+
+  </section>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2026
+          
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+      </p>
+    
+    <script src="https://udify.app/embed.min.js" id="Wfh0f5nhnUjfQ9xc" defer></script>
+  </div>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Search"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          aria-label="Search"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+    
+    
+  </body>
+  
+</html>
