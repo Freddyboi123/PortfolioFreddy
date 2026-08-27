@@ -3,7 +3,8 @@ name: Sync posts to Dify
 on:
   push:
     branches: [main]
-    paths: ['content/*.md']
+    paths:
+      - 'content/**/*.md'
   workflow_dispatch:
 
 permissions:
@@ -90,7 +91,7 @@ jobs:
                 text: await readFile(file, 'utf8'),
                 indexing_technique: 'high_quality'
               })
-            });
+            }); 
             console.log(`${existing ? 'Updated' : 'Created'}: ${name}`);
             // Dify Cloud limits Knowledge Base API requests on this subscription.
             await wait(7000);
