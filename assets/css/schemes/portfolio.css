@@ -1,0 +1,39 @@
+/* Portfolio scheme: warm paper/ink neutrals, coral primary, sage secondary.
+   Blowfish uses --color-neutral as the light background and as heading text in dark mode,
+   and --color-neutral-800 as the dark background. */
+:root {
+  --color-neutral: 244, 241, 234;
+  /* Warm grey-green */
+  --color-neutral-50: 250, 248, 243;
+  --color-neutral-100: 238, 235, 227;
+  --color-neutral-200: 226, 223, 213;
+  --color-neutral-300: 214, 211, 200;
+  --color-neutral-400: 160, 165, 158;
+  --color-neutral-500: 98, 106, 100;
+  --color-neutral-600: 82, 91, 86;
+  --color-neutral-700: 50, 60, 56;
+  --color-neutral-800: 22, 29, 27;
+  --color-neutral-900: 14, 19, 17;
+  /* Coral */
+  --color-primary-50: 253, 241, 237;
+  --color-primary-100: 251, 225, 216;
+  --color-primary-200: 247, 196, 180;
+  --color-primary-300: 243, 162, 138;
+  --color-primary-400: 240, 132, 104;
+  --color-primary-500: 237, 103, 72;
+  --color-primary-600: 205, 76, 47;
+  --color-primary-700: 166, 58, 36;
+  --color-primary-800: 135, 49, 32;
+  --color-primary-900: 110, 43, 30;
+  /* Sage */
+  --color-secondary-50: 240, 246, 241;
+  --color-secondary-100: 222, 236, 224;
+  --color-secondary-200: 192, 218, 196;
+  --color-secondary-300: 155, 195, 161;
+  --color-secondary-400: 120, 172, 128;
+  --color-secondary-500: 98, 160, 107;
+  --color-secondary-600: 76, 130, 85;
+  --color-secondary-700: 61, 104, 68;
+  --color-secondary-800: 50, 83, 56;
+  --color-secondary-900: 42, 69, 47;
+}

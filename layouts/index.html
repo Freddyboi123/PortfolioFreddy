@@ -1,0 +1,35 @@
+{{ define "main" }}
+  <div class="portfolio-home">
+    <section class="portfolio-hero portfolio-wrap" id="top">
+      <div class="portfolio-kicker"><span class="portfolio-status"></span>{{ .Params.hero_kicker }}<span class="portfolio-location">{{ .Params.hero_note }}</span></div>
+      <h1>{{ .Title }}<br><em>{{ .Params.hero_lead }}</em></h1>
+      <div class="portfolio-hero-foot">
+        <p>{{ .Params.about_lead }}</p>
+        <a class="portfolio-circle-link" href="#work" aria-label="Scroll to selected work">Scroll<br>to see <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="portfolio-section portfolio-wrap" id="work" aria-labelledby="work-title">
+      <div class="portfolio-section-heading"><p class="portfolio-eyebrow">Selected work / 2024 - now</p><h2 id="work-title">A few things<br><em>I'm shaping.</em></h2></div>
+      <div class="portfolio-project-list">
+        {{ range .Params.projects }}
+          <article class="portfolio-project">
+            <div class="portfolio-project-art portfolio-project--{{ .color }}" aria-hidden="true"><span class="portfolio-project-number">{{ .number }}</span><strong>{{ .mark }}</strong><span class="portfolio-art-caption">A study in <i>{{ .title }}</i></span></div>
+            <div class="portfolio-project-copy"><p class="portfolio-project-type">{{ .type }}</p><h3>{{ .title }}</h3><p>{{ .description }}</p><div class="portfolio-tags">{{ range .tags }}<span>{{ . }}</span>{{ end }}</div><a href="#contact">Talk about it <span aria-hidden="true">↗</span></a></div>
+          </article>
+        {{ end }}
+      </div>
+    </section>
+
+    <section class="portfolio-about portfolio-wrap" id="about" aria-labelledby="about-title">
+      <div><p class="portfolio-eyebrow">A little about me</p><h2 id="about-title">Curious by nature,<br><em>careful by practice.</em></h2></div>
+      <div class="portfolio-about-copy"><p class="portfolio-lead">{{ .Params.about_lead }}</p><p>{{ .Params.about_text }}</p><div class="portfolio-toolkit"><span>My toolkit</span><p>{{ .Params.toolkit }}</p></div></div>
+    </section>
+
+    <section class="portfolio-contact portfolio-wrap" id="contact" aria-labelledby="contact-title">
+      <p class="portfolio-eyebrow">Have a good one?</p><h2 id="contact-title">Let's make<br><em>something useful.</em></h2>
+      <a class="portfolio-email" href="mailto:hello@example.com">hello@example.com <span aria-hidden="true">↗</span></a>
+      <div class="portfolio-contact-meta"><span>Currently building, learning, and open to good conversations.</span><span><a href="{{ "posts/" | relURL }}">Read the blog</a><a href="#top">Back to top ↑</a></span></div>
+    </section>
+  </div>
+{{ end }}

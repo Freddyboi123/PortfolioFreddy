@@ -1,0 +1,1260 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>Week 36: Requirements Specification &middot; Blowfish</title>
+    <meta name="title" content="Week 36: Requirements Specification &middot; Blowfish">
+  
+
+  
+  
+  
+  
+  
+    
+  
+    
+  
+    
+  
+  
+    <meta name="description" content="Functional and non-functional requirements, user stories and INVEST, acceptance criteria, Planning Poker, story points vs. T-shirt sizes, MoSCoW and the Definition of Done.">
+  
+  
+    <meta name="keywords" content="SYS,Requirements,User stories,INVEST,Planning Poker,MoSCoW,FURPS,">
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/posts/sys/week-36/">
+  
+  
+
+  
+  
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/posts/sys/week-36/">
+	<meta property="og:site_name" content="Blowfish">
+	<meta property="og:title" content="Week 36: Requirements Specification">
+	<meta property="og:description" content="Functional and non-functional requirements, user stories and INVEST, acceptance criteria, Planning Poker, story points vs. T-shirt sizes, MoSCoW and the Definition of Done.">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2026-08-31T16:00:00+02:00">
+		<meta property="article:modified_time" content="2026-08-31T16:00:00+02:00">
+		<meta property="article:tag" content="SYS">
+		<meta property="article:tag" content="Requirements">
+		<meta property="article:tag" content="User Stories">
+		<meta property="article:tag" content="INVEST">
+		<meta property="article:tag" content="Planning Poker">
+		<meta property="article:tag" content="MoSCoW">
+			<meta property="og:see_also" content="http://localhost:1313/posts/sys/week-34/">
+			<meta property="og:see_also" content="http://localhost:1313/posts/sys/week-35/">
+			<meta property="og:see_also" content="http://localhost:1313/posts/sys/week-37/">
+			<meta property="og:see_also" content="http://localhost:1313/posts/sys/week-38/">
+			<meta property="og:see_also" content="http://localhost:1313/posts/sys/week-39/">
+			<meta property="og:see_also" content="http://localhost:1313/posts/sys/week-40/">
+
+  
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Week 36: Requirements Specification">
+	<meta name="twitter:description" content="Functional and non-functional requirements, user stories and INVEST, acceptance criteria, Planning Poker, story points vs. T-shirt sizes, MoSCoW and the Definition of Done.">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.6ad52bb91d58be89d43e976987bfb44e9b4ff86514692bd804fed2c71c0c2716f0a884f39201c2326f41ac38233b6a0145126656b177863a971e5851ea6198d3.css"
+    integrity="sha512-atUruR1YvonUPpdph7&#43;0TptP&#43;GUUaSvYBP7SxxwMJxbwqITzkgHCMm9BrDgjO2oBRRJmVrF3hjqXHlhR6mGY0w==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.764f412f07ea715415e9123a5eb5f355429502d0b760146b9bcab854bc50829dee14488594acd935dfcdc6a0fe7e6d14d7bee914ebb9272b251aa238cb52c4dd.js"
+    integrity="sha512-dk9BLwfqcVQV6RI6XrXzVUKVAtC3YBRrm8q4VLxQgp3uFEiFlKzZNd/NxqD&#43;fm0U177pFOu5JyslGqI4y1LE3Q=="></script>
+  
+
+
+  
+  
+  
+  
+  
+  
+    
+    <script defer src="/lib/zoom/zoom.min.umd.b4b722fcb5d42f34f52b30a92f3521b69f403ca9d96d0d6179eb537cb870f5d83fdf1fe836688d95d5c99fefbda4170487711006e56051fa67ea00da10521721.js" integrity="sha512-tLci/LXULzT1KzCpLzUhtp9APKnZbQ1heetTfLhw9dg/3x/oNmiNldXJn&#43;&#43;9pBcEh3EQBuVgUfpn6gDaEFIXIQ=="></script>
+    
+    <script defer src="/js/medium-zoom.7f76d937fbb793f3703fedc60ee1e6345259cf2ada403d1876b806fffeaeb2ba6fc594eaccad75c96d5d2425e9fb833748bf1221b4d90d3cf78cf073e104f814.js" integrity="sha512-f3bZN/u3k/NwP&#43;3GDuHmNFJZzyraQD0YdrgG//6usrpvxZTqzK11yW1dJCXp&#43;4M3SL8SIbTZDTz3jPBz4QT4FA=="></script>
+  
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+    
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.99f39627b4e89544b263cce4eca1b0e27f7d2939c95ac76fec7aec92b4e87de1bffe6eefa8e2987b505891dfecefa32982e737fbe32233fc3e8d63b934da501b.js"
+      integrity="sha512-mfOWJ7TolUSyY8zk7KGw4n99KTnJWsdv7HrskrTofeG//m7vqOKYe1BYkd/s76Mpguc3&#43;&#43;MiM/w&#43;jWO5NNpQGw=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Blog",
+    "name": "Week 36: Requirements Specification",
+    "headline": "Week 36: Requirements Specification",
+    "description": "Functional and non-functional requirements, user stories and INVEST, acceptance criteria, Planning Poker, story points vs. T-shirt sizes, MoSCoW and the Definition of Done.",
+    "inLanguage": "en",
+    "url" : "http://localhost:1313/posts/sys/week-36/",
+    "author" : {
+      "@type": "Person",
+      "name": ""
+    },
+    "copyrightYear": "2026",
+    "dateCreated": "2026-08-31T16:00:00\u002b02:00",
+    "datePublished": "2026-08-31T16:00:00\u002b02:00",
+    
+    "dateModified": "2026-08-31T16:00:00\u002b02:00",
+    
+    "keywords": ["SYS","Requirements","User stories","INVEST","Planning Poker","MoSCoW","FURPS"],
+    
+    "mainEntityOfPage": "http://localhost:1313/posts/sys/week-36/",
+    "wordCount":  939 
+  }]
+  </script>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral bf-scrollbar">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        Skip to main content
+      </a>
+    </div>
+    <header>
+      
+      
+        <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
+  
+  
+    <a href="/" class="text-base font-medium truncate min-w-0 shrink">
+      Blowfish
+    </a>
+  
+  <div class="flex items-center ms-auto">
+    <div class="hidden md:flex">
+      <nav aria-label="Main menu" class="flex items-center gap-x-5 h-12">
+  
+    
+      
+  
+    <a
+      href="/posts/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Blog"
+      title="">
+      
+      
+        <span class="text-sm font-medium break-normal">
+          Blog
+        </span>
+      
+    </a>
+  
+
+    
+  
+
+  
+
+  
+
+  
+    <div class="flex items-center">
+      <button
+        id="appearance-switcher"
+        aria-label="Switch to dark appearance"
+        type="button"
+        class="text-sm bf-icon-color-hover"
+        title="Switch to dark appearance">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    </div>
+  
+
+  
+    <button
+      id="search-button"
+      aria-label="Search (/ or ⌘K)"
+      class="flex items-center gap-2 rounded-lg border bf-border-color bf-border-color-hover bg-neutral-100/50 px-2 py-1 text-sm text-neutral-500 transition-colors hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral-400 dark:hover:text-primary-400"
+      title="Search (/ or ⌘K)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      <kbd
+        id="search-shortcut-hint"
+        class="pointer-events-none font-sans text-xs text-neutral-500 dark:text-neutral-400"
+        aria-hidden="true">
+        ⌘K
+      </kbd>
+    </button>
+  
+</nav>
+
+
+
+    </div>
+    <div class="flex md:hidden">
+      
+<div class="mobile-header-row mobile-menu-fullscreen relative flex items-center h-14 gap-4">
+  
+
+  
+    <button
+      id="appearance-switcher-mobile"
+      type="button"
+      aria-label="Switch to dark appearance"
+      title="Switch to dark appearance"
+      class="flex items-center justify-center text-neutral-900 hover:text-primary-600 dark:text-neutral-200 dark:hover:text-primary-400">
+      <div class="dark:hidden">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+      </div>
+      <div class="hidden dark:block">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+      </div>
+    </button>
+  
+
+  
+    <button
+      id="search-button-mobile"
+      aria-label="Search (/ or ⌘K)"
+      class="flex items-center justify-center bf-icon-color-hover"
+      title="Search (/ or ⌘K)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <input type="checkbox" id="mobile-menu-toggle" autocomplete="off" class="hidden peer">
+    <label
+      for="mobile-menu-toggle"
+      tabindex="0"
+      role="button"
+      aria-expanded="false"
+      aria-controls="mobile-menu-dialog"
+      aria-label="Main menu"
+      class="flex items-center justify-center cursor-pointer bf-icon-color-hover">
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+    </label>
+
+    <div
+      id="mobile-menu-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Main menu"
+      style="scrollbar-gutter: stable;"
+      class="z-50 invisible overflow-y-auto opacity-0 transition-[opacity,visibility] duration-300 peer-checked:visible peer-checked:opacity-100
+      
+        fixed inset-0 px-6 py-20 bg-neutral-50/97 dark:bg-neutral-900/99
+      
+      bf-scrollbar">
+      <label
+        for="mobile-menu-toggle"
+        tabindex="0"
+        role="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu-dialog"
+        class="fixed end-8 top-5 z-50 h-12 w-12 rounded-full flex items-center justify-center cursor-pointer select-none bf-icon-color-hover border bf-border-color bf-border-color-hover bg-neutral-50 dark:bg-neutral-900">
+        <span class="sr-only">Close menu</span>
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </label>
+      <nav
+        aria-label="Mobile menu"
+        class="mx-auto max-w-md space-y-6">
+        
+  
+    
+    <div class="px-2">
+      <div class="flex items-center gap-4">
+        <a
+          href="/posts/"
+          aria-label="Blog"
+          
+          class="flex grow items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+          
+          <span title="" class="text-2xl font-bold tracking-tight">
+            Blog
+          </span>
+        </a>
+        
+      </div>
+
+      
+    </div>
+  
+
+        
+  
+
+        
+  
+
+      </nav>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+      
+    </header>
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  
+  
+  
+  <article>
+    
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Week 36: Requirements Specification
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-08-31T16:00:00&#43;02:00">31 August 2026</time><span class="px-2 text-primary-500">&middot;</span><span>939 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    
+      
+      
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+
+    
+  
+
+  
+    <div class="mb-5"></div>
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+  <details
+    class="mt-2 mb-5 overflow-hidden rounded-lg ms-0 ps-5"
+    >
+    
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 -ms-5 ps-5 dark:bg-primary-800 dark:text-neutral-100">
+    System Development -
+    This article is part of a series.
+  </summary>
+  
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/posts/sys/week-34/">
+          Part 1:
+          Week 34: Introduction to System Development
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/posts/sys/week-35/">
+          Part 2:
+          Week 35: Scrum
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        Part 3:
+        This Article
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/posts/sys/week-37/">
+          Part 4:
+          Week 37: Scrum Project Kickoff
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/posts/sys/week-38/">
+          Part 5:
+          Week 38: Sprint Review and Sprint Planning
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/posts/sys/week-39/">
+          Part 6:
+          Week 39: Reflecting on Our Scrum Practice
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/posts/sys/week-40/">
+          Part 7:
+          Week 40: Quality Assurance and Testing
+        </a>
+      </div>
+    
+  
+
+
+  </details>
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p>This week was about <strong>requirements</strong>: how we describe what a system should do, how we know when a requirement is met, and how we estimate and prioritize the work. It was preparation for the Scrum project starting next week.</p>
+
+<h2 class="relative group">Functional and non-functional requirements
+    <div id="functional-and-non-functional-requirements" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#functional-and-non-functional-requirements" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li><strong>Functional requirements</strong> describe <em>what</em> the system should do: its features and behaviour. <em>&ldquo;A user can reset their password by email.&rdquo;</em></li>
+<li><strong>Non-functional requirements</strong> describe <em>how well</em> the system should do it: qualities and constraints. <em>&ldquo;Pages load in under 2 seconds.&rdquo;</em>, <em>&ldquo;The system supports 500 concurrent users.&rdquo;</em></li>
+</ul>
+<p><strong>FURPS</strong> is a useful checklist for finding requirements of both kinds:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Letter</th>
+					<th>Category</th>
+					<th>Example</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>F</strong></td>
+					<td>Functionality</td>
+					<td>Features, capabilities, security</td>
+			</tr>
+			<tr>
+					<td><strong>U</strong></td>
+					<td>Usability</td>
+					<td>Ease of use, accessibility, documentation</td>
+			</tr>
+			<tr>
+					<td><strong>R</strong></td>
+					<td>Reliability</td>
+					<td>Availability, error rate, recoverability</td>
+			</tr>
+			<tr>
+					<td><strong>P</strong></td>
+					<td>Performance</td>
+					<td>Response time, throughput, resource use</td>
+			</tr>
+			<tr>
+					<td><strong>S</strong></td>
+					<td>Supportability</td>
+					<td>Maintainability, testability, configurability</td>
+			</tr>
+	</tbody>
+</table>
+<p>(FURPS+ adds constraints such as design, implementation, interface and physical requirements.)</p>
+<p>Non-functional requirements are easy to forget because they rarely appear as a single feature, but they often decide whether the system is actually usable.</p>
+
+<h2 class="relative group">User stories
+    <div id="user-stories" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#user-stories" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>A <strong>user story</strong> describes a requirement from the user&rsquo;s perspective:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">As a &lt;type of user&gt;,
+</span></span><span class="line"><span class="cl">I want &lt;some goal&gt;,
+</span></span><span class="line"><span class="cl">so that &lt;some reason / value&gt;.</span></span></code></pre></div></div>
+<p>For example: <em>&ldquo;As a customer, I want to see my order history, so that I can reorder products I&rsquo;ve bought before.&rdquo;</em></p>
+<p>A user story is not a full specification. Mike Cohn calls it a <em>promise of a conversation</em>: the story is a placeholder, and the details are clarified in dialogue with the Product Owner.</p>
+
+<h3 class="relative group">INVEST: criteria for a good user story
+    <div id="invest-criteria-for-a-good-user-story" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#invest-criteria-for-a-good-user-story" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<table>
+	<thead>
+			<tr>
+					<th></th>
+					<th>Criterion</th>
+					<th>Meaning</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>I</strong></td>
+					<td>Independent</td>
+					<td>Can be developed without depending on other stories.</td>
+			</tr>
+			<tr>
+					<td><strong>N</strong></td>
+					<td>Negotiable</td>
+					<td>Not a fixed contract. The details are open for discussion.</td>
+			</tr>
+			<tr>
+					<td><strong>V</strong></td>
+					<td>Valuable</td>
+					<td>Delivers value to a user or customer.</td>
+			</tr>
+			<tr>
+					<td><strong>E</strong></td>
+					<td>Estimable</td>
+					<td>The team understands it well enough to estimate it.</td>
+			</tr>
+			<tr>
+					<td><strong>S</strong></td>
+					<td>Small</td>
+					<td>Fits within a sprint.</td>
+			</tr>
+			<tr>
+					<td><strong>T</strong></td>
+					<td>Testable</td>
+					<td>It&rsquo;s clear how to verify that it&rsquo;s done.</td>
+			</tr>
+	</tbody>
+</table>
+
+<h3 class="relative group">Story splitting
+    <div id="story-splitting" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#story-splitting" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Stories that are too big (<em>epics</em>) must be split. The key is to split <strong>vertically</strong>, so each piece still delivers value through all layers of the system. Horizontal splits like &ldquo;the database part&rdquo; and &ldquo;the UI part&rdquo; don&rsquo;t deliver value on their own. Common ways to split are by workflow step, by business rule, by data variation, or by doing the simple case first and the complex case later.</p>
+
+<h2 class="relative group">Acceptance criteria
+    <div id="acceptance-criteria" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#acceptance-criteria" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p><strong>Acceptance criteria</strong> (Cohn calls them <em>conditions of satisfaction</em>) are the concrete conditions a specific story must meet to be accepted. They clarify and limit the requirement:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Story: As a customer, I want to reset my password so that I can log in if I forget it.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Acceptance criteria:
+</span></span><span class="line"><span class="cl">- Given a registered email, a reset link is sent to that email.
+</span></span><span class="line"><span class="cl">- The reset link expires after 24 hours.
+</span></span><span class="line"><span class="cl">- An unknown email shows the same neutral message (no user enumeration).
+</span></span><span class="line"><span class="cl">- The new password must meet the password policy.</span></span></code></pre></div></div>
+<p>The Given/When/Then format is also common. Good acceptance criteria can be turned directly into test cases, which becomes important in week 40.</p>
+
+<h3 class="relative group">Acceptance criteria vs. Definition of Done
+    <div id="acceptance-criteria-vs-definition-of-done" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#acceptance-criteria-vs-definition-of-done" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><strong>Acceptance criteria</strong> are <em>specific</em> to one story. They describe what this feature must do.</li>
+<li>The <strong>Definition of Done</strong> is <em>general</em> and applies to <em>all</em> stories. It describes the quality standard for any finished work (reviewed, tested, merged, documented …).</li>
+</ul>
+<p>A story is only done when it meets <strong>both</strong> its own acceptance criteria and the team&rsquo;s DoD.</p>
+
+<h2 class="relative group">Estimation
+    <div id="estimation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#estimation" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">Absolute vs. relative estimation
+    <div id="absolute-vs-relative-estimation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#absolute-vs-relative-estimation" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><strong>Absolute</strong> estimation: <em>&ldquo;this will take 6 hours&rdquo;</em>. People are bad at this, especially for work they haven&rsquo;t done before.</li>
+<li><strong>Relative</strong> estimation: <em>&ldquo;this is about twice as big as that&rdquo;</em>. People are much better at comparing.</li>
+</ul>
+<p>Agile teams therefore usually estimate <strong>relatively</strong>:</p>
+<ul>
+<li><strong>Story points</strong>: an abstract number for size, covering effort, complexity and uncertainty. Often a modified Fibonacci scale (1, 2, 3, 5, 8, 13, 20 …). The growing gaps reflect that uncertainty grows with size.</li>
+<li><strong>T-shirt sizes</strong> (XS, S, M, L, XL): coarser and faster. Good for early, rough estimation of a large backlog.</li>
+</ul>
+<p>Hours are still used in some teams, typically for breaking a story down into tasks during sprint planning.</p>
+
+<h3 class="relative group">Planning Poker
+    <div id="planning-poker" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#planning-poker" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p><strong>Planning Poker</strong> is a consensus technique for estimating:</p>
+<ol>
+<li>The PO reads a story and answers questions.</li>
+<li>Each developer privately picks a card with their estimate.</li>
+<li>Everyone reveals their card <strong>at the same time</strong>, so nobody anchors on anyone else.</li>
+<li>The highest and lowest estimates explain their reasoning.</li>
+<li>Repeat until the estimates converge.</li>
+</ol>
+<p>The discussion is often more valuable than the number. A big spread usually means people have <em>understood the story differently</em>.</p>
+
+<h2 class="relative group">Prioritization with MoSCoW
+    <div id="prioritization-with-moscow" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#prioritization-with-moscow" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Not everything can be built at once, so requirements must be <strong>prioritized</strong>. <strong>MoSCoW</strong> sorts them into four groups:</p>
+<ul>
+<li><strong>M</strong>ust have: the product doesn&rsquo;t work or has no value without it.</li>
+<li><strong>S</strong>hould have: important, but the product still works without it.</li>
+<li><strong>C</strong>ould have: nice to have if there&rsquo;s time.</li>
+<li><strong>W</strong>on&rsquo;t have (this time): explicitly out of scope for now.</li>
+</ul>
+<p>The &ldquo;Won&rsquo;t have&rdquo; group is useful because it makes the scope explicit and manages expectations.</p>
+
+<h2 class="relative group">Putting it together
+    <div id="putting-it-together" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#putting-it-together" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>These tools together drive agile planning:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Requirements → User stories (INVEST) → Acceptance criteria
+</span></span><span class="line"><span class="cl">     → Estimation (story points) → Prioritization (MoSCoW / PO)
+</span></span><span class="line"><span class="cl">         → Sprint Planning → Build → Done (acceptance criteria + DoD)</span></span></code></pre></div></div>
+
+<h2 class="relative group">Key takeaways
+    <div id="key-takeaways" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#key-takeaways" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li>Functional requirements describe <em>what</em>, non-functional requirements describe <em>how well</em>, and FURPS helps you find both.</li>
+<li>A good user story follows INVEST and is split vertically.</li>
+<li>Acceptance criteria are specific to a story, while the DoD applies to everything.</li>
+<li>Estimate relatively (story points or T-shirt sizes) and use Planning Poker to surface different interpretations.</li>
+<li>MoSCoW makes priorities and scope explicit.</li>
+</ul>
+
+          
+          
+          
+        </div>
+        
+        
+  <details class="mt-2 mb-5 overflow-hidden rounded-lg ms-0 ps-5">
+    
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 -ms-5 ps-5 dark:bg-primary-800 dark:text-neutral-100">
+    System Development -
+    This article is part of a series.
+  </summary>
+  
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/posts/sys/week-34/">
+          Part 1:
+          Week 34: Introduction to System Development
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/posts/sys/week-35/">
+          Part 2:
+          Week 35: Scrum
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        Part 3:
+        This Article
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/posts/sys/week-37/">
+          Part 4:
+          Week 37: Scrum Project Kickoff
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/posts/sys/week-38/">
+          Part 5:
+          Week 38: Sprint Review and Sprint Planning
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/posts/sys/week-39/">
+          Part 6:
+          Week 39: Reflecting on Our Scrum Practice
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/posts/sys/week-40/">
+          Part 7:
+          Week 40: Quality Assurance and Testing
+        </a>
+      </div>
+    
+  
+
+
+  </details>
+
+
+        
+
+        
+
+      </div>
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span class="flex flex-col">
+          
+            <a
+              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/posts/sys/week-37/">
+              <span class="leading-6">
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;Week 37: Scrum Project Kickoff
+              </span>
+            </a>
+            
+              <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2026-09-07T16:00:00&#43;02:00">7 September 2026</time>
+              </span>
+            
+          
+        </span>
+        <span class="flex flex-col items-end">
+          
+            <a
+              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/posts/sys/week-35/">
+              <span class="leading-6">
+                Week 35: Scrum&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+              </span>
+            </a>
+            
+              <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2026-08-24T16:00:00&#43;02:00">24 August 2026</time>
+              </span>
+            
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2026
+          
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+      </p>
+    
+  </div>
+  
+  
+    <script>
+ window.difyChatbotConfig = {
+  token: 'Wfh0f5nhnUjfQ9xc',
+  baseUrl: 'https://udify.app',
+  inputs: {
+    
+    
+    
+    
+  },
+  systemVariables: {
+    
+    
+  },
+  userVariables: {
+    
+    
+  },
+ }
+</script>
+<script
+ src="https://udify.app/embed.min.js"
+ id="Wfh0f5nhnUjfQ9xc"
+ defer>
+</script>
+<style>
+  #dify-chatbot-bubble-button {
+    background-color: rgb(var(--color-primary-600)) !important;
+  }
+  #dify-chatbot-bubble-window {
+    width: 24rem !important;
+    height: 40rem !important;
+  }
+</style>
+  
+</footer>
+<div
+  id="search-wrapper"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Search"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          aria-label="Search"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+    
+    
+  </body>
+  
+</html>

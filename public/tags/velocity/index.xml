@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Velocity on Blowfish</title>
+    <link>http://localhost:1313/tags/velocity/</link>
+    <description>Recent content in Velocity on Blowfish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 </copyright>
+    <lastBuildDate>Mon, 21 Sep 2026 16:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/velocity/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Week 39: Reflecting on Our Scrum Practice</title>
+      <link>http://localhost:1313/posts/sys/week-39/</link>
+      <pubDate>Mon, 21 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/posts/sys/week-39/</guid>
+      <description>Second Sprint Review and Planning, and a deeper look at how we work: retrospectives, velocity, the Scrum board, backlogs, pull requests, acceptance criteria and sprint goals.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

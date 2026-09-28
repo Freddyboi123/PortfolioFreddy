@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub Projects on Blowfish</title>
+    <link>http://localhost:1313/tags/github-projects/</link>
+    <description>Recent content in GitHub Projects on Blowfish</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 </copyright>
+    <lastBuildDate>Mon, 07 Sep 2026 16:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/github-projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Week 37: Scrum Project Kickoff</title>
+      <link>http://localhost:1313/posts/sys/week-37/</link>
+      <pubDate>Mon, 07 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/posts/sys/week-37/</guid>
+      <description>Kickoff of our Scrum project with Alpha Solutions: shared understanding, the first Product Backlog, Definition of Done, GitHub setup and the Sprint Zero debate.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
