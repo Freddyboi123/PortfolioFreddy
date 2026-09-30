@@ -16,6 +16,10 @@ description = "A conversational way to explore my work, experience, and technica
 tags = ["Dify", "RAG", "OpenAI"]
 color = "coral"
 mark = "RAG"
+image = "images/projects/rag.jpg"
+image_alt = "A hand typing a question to an AI chatbot on a smartphone"
+credit = "Zulfugar Karimov"
+credit_url = "https://unsplash.com/photos/CaRba5ZXJTQ"
 
 [[projects]]
 number = "02"
@@ -25,6 +29,9 @@ description = "A deliberately calm space for projects and writing, shaped with H
 tags = ["Hugo", "Blowfish", "Design"]
 color = "sky"
 mark = "HF"
+image = "images/projects/portfolio.jpg"
+image_alt = "A laptop showing HTML code in an editor"
+credit = "Arnold Francisca"
 
 [[projects]]
 number = "03"
@@ -34,4 +41,7 @@ description = "Small tools, prototypes, and ideas that are still becoming what t
 tags = ["Learning", "Prototypes", "Systems"]
 color = "lime"
 mark = "..."
+image = "images/projects/in-progress.jpg"
+image_alt = "A hand-drawn website wireframe in a sketchbook next to an orange pen"
+credit = "Compagnons"
 +++

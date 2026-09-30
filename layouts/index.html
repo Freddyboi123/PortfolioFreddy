@@ -19,8 +19,14 @@
       <div class="portfolio-section-heading"><p class="portfolio-eyebrow">Selected work / 2024 - now</p><h2 id="work-title">A few things<br><em>I'm shaping.</em></h2></div>
       <div class="portfolio-project-list">
         {{ range .Params.projects }}
+          {{ $project := . }}
           <article class="portfolio-project">
-            <div class="portfolio-project-art portfolio-project--{{ .color }}" aria-hidden="true"><span class="portfolio-project-number">{{ .number }}</span><strong>{{ .mark }}</strong><span class="portfolio-art-caption">A study in <i>{{ .title }}</i></span></div>
+            {{ $photo := "" }}{{ with .image }}{{ with resources.Get . }}{{ $photo = .Fill "1100x710 Center webp q80" }}{{ end }}{{ end }}
+            {{ if $photo }}
+              <figure class="portfolio-project-art portfolio-project-art--photo portfolio-project--{{ .color }}"><img src="{{ $photo.RelPermalink }}" width="{{ $photo.Width }}" height="{{ $photo.Height }}" alt="{{ .image_alt }}" loading="lazy"><span class="portfolio-project-number" aria-hidden="true">{{ .number }}</span>{{ with .credit }}<figcaption class="portfolio-art-caption">Photo: {{ . }} / <a href="{{ $project.credit_url | default "https://unsplash.com" }}" rel="noopener">Unsplash</a></figcaption>{{ end }}</figure>
+            {{ else }}
+              <div class="portfolio-project-art portfolio-project--{{ .color }}" aria-hidden="true"><span class="portfolio-project-number">{{ .number }}</span><strong>{{ .mark }}</strong><span class="portfolio-art-caption">A study in <i>{{ .title }}</i></span></div>
+            {{ end }}
             <div class="portfolio-project-copy"><p class="portfolio-project-type">{{ .type }}</p><h3>{{ .title }}</h3><p>{{ .description }}</p><div class="portfolio-tags">{{ range .tags }}<span>{{ . }}</span>{{ end }}</div><a href="#contact">Talk about it <span aria-hidden="true">↗</span></a></div>
           </article>
         {{ end }}
