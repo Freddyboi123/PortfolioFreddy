@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LLM on Frederik</title>
-    <link>http://localhost:1313/tags/llm/</link>
+    <link>http://localhost:1320/tags/llm/</link>
     <description>Recent content in LLM on Frederik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 </copyright>
-    <lastBuildDate>Fri, 04 Sep 2026 16:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Sep 2026 16:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1320/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Week 34: Getting Started and My First RAG Chatbot</title>
-      <link>http://localhost:1313/posts/aida/week-34/</link>
+      <link>http://localhost:1320/posts/aida/week-34/</link>
       <pubDate>Fri, 21 Aug 2026 16:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/aida/week-34/</guid>
+      <guid>http://localhost:1320/posts/aida/week-34/</guid>
       <description>Course kickoff, setting up this portfolio with Hugo and Blowfish, and an introduction to Retrieval-Augmented Generation.</description>
       
     </item>
     
     <item>
       <title>Week 36: Integrating an LLM API into My Own Application</title>
-      <link>http://localhost:1313/posts/aida/week-36/</link>
+      <link>http://localhost:1320/posts/aida/week-36/</link>
       <pubDate>Fri, 04 Sep 2026 16:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/aida/week-36/</guid>
+      <guid>http://localhost:1320/posts/aida/week-36/</guid>
       <description>Treating an LLM as an external service: prompts, structured output, error handling, and building an AI assignment-feedback app.</description>
       
     </item>

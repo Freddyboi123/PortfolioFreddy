@@ -2,79 +2,79 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>System Development on Frederik</title>
-    <link>http://localhost:1313/categories/system-development/</link>
+    <link>http://localhost:1320/categories/system-development/</link>
     <description>Recent content in System Development on Frederik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 </copyright>
-    <lastBuildDate>Mon, 28 Sep 2026 09:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1313/categories/system-development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Sep 2026 09:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1320/categories/system-development/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Week 34: Introduction to System Development</title>
-      <link>http://localhost:1313/posts/sys/week-34/</link>
+      <link>http://localhost:1320/posts/sys/week-34/</link>
       <pubDate>Mon, 17 Aug 2026 16:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/sys/week-34/</guid>
+      <guid>http://localhost:1320/posts/sys/week-34/</guid>
       <description>The foundations of system development: the SDLC, Royce&amp;rsquo;s 1970 paper on the waterfall model, and the Agile Manifesto.</description>
       
     </item>
     
     <item>
       <title>Week 35: Scrum</title>
-      <link>http://localhost:1313/posts/sys/week-35/</link>
+      <link>http://localhost:1320/posts/sys/week-35/</link>
       <pubDate>Mon, 24 Aug 2026 16:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/sys/week-35/</guid>
+      <guid>http://localhost:1320/posts/sys/week-35/</guid>
       <description>The Scrum framework: roles, events, artifacts, timeboxed sprints, Definition of Done and how Scrum supports iterative and incremental development.</description>
       
     </item>
     
     <item>
       <title>Week 36: Requirements Specification</title>
-      <link>http://localhost:1313/posts/sys/week-36/</link>
+      <link>http://localhost:1320/posts/sys/week-36/</link>
       <pubDate>Mon, 31 Aug 2026 16:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/sys/week-36/</guid>
+      <guid>http://localhost:1320/posts/sys/week-36/</guid>
       <description>Functional and non-functional requirements, user stories and INVEST, acceptance criteria, Planning Poker, story points vs. T-shirt sizes, MoSCoW and the Definition of Done.</description>
       
     </item>
     
     <item>
       <title>Week 37: Scrum Project Kickoff</title>
-      <link>http://localhost:1313/posts/sys/week-37/</link>
+      <link>http://localhost:1320/posts/sys/week-37/</link>
       <pubDate>Mon, 07 Sep 2026 16:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/sys/week-37/</guid>
+      <guid>http://localhost:1320/posts/sys/week-37/</guid>
       <description>Kickoff of our Scrum project with Alpha Solutions: shared understanding, the first Product Backlog, Definition of Done, GitHub setup and the Sprint Zero debate.</description>
       
     </item>
     
     <item>
       <title>Week 38: Sprint Review and Sprint Planning</title>
-      <link>http://localhost:1313/posts/sys/week-38/</link>
+      <link>http://localhost:1320/posts/sys/week-38/</link>
       <pubDate>Mon, 14 Sep 2026 16:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/sys/week-38/</guid>
+      <guid>http://localhost:1320/posts/sys/week-38/</guid>
       <description>Our first Sprint Review and Sprint Planning with the Product Owner: demoing the increment, adapting the Product Backlog and choosing the next Sprint Goal.</description>
       
     </item>
     
     <item>
       <title>Week 39: Reflecting on Our Scrum Practice</title>
-      <link>http://localhost:1313/posts/sys/week-39/</link>
+      <link>http://localhost:1320/posts/sys/week-39/</link>
       <pubDate>Mon, 21 Sep 2026 16:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/sys/week-39/</guid>
+      <guid>http://localhost:1320/posts/sys/week-39/</guid>
       <description>Second Sprint Review and Planning, and a deeper look at how we work: retrospectives, velocity, the Scrum board, backlogs, pull requests, acceptance criteria and sprint goals.</description>
       
     </item>
     
     <item>
       <title>Week 40: Quality Assurance and Testing</title>
-      <link>http://localhost:1313/posts/sys/week-40/</link>
+      <link>http://localhost:1320/posts/sys/week-40/</link>
       <pubDate>Mon, 28 Sep 2026 09:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/sys/week-40/</guid>
+      <guid>http://localhost:1320/posts/sys/week-40/</guid>
       <description>Quality assurance in a Scrum project: the test pyramid, test strategy, what to automate, test case design techniques, testability and quality as a continuous part of the sprint.</description>
       
     </item>

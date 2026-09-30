@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Test Design on Frederik</title>
-    <link>http://localhost:1313/tags/test-design/</link>
+    <link>http://localhost:1320/tags/test-design/</link>
     <description>Recent content in Test Design on Frederik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 </copyright>
-    <lastBuildDate>Mon, 28 Sep 2026 09:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/test-design/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Sep 2026 09:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1320/tags/test-design/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Week 40: Quality Assurance and Testing</title>
-      <link>http://localhost:1313/posts/sys/week-40/</link>
+      <link>http://localhost:1320/posts/sys/week-40/</link>
       <pubDate>Mon, 28 Sep 2026 09:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/sys/week-40/</guid>
+      <guid>http://localhost:1320/posts/sys/week-40/</guid>
       <description>Quality assurance in a Scrum project: the test pyramid, test strategy, what to automate, test case design techniques, testability and quality as a continuous part of the sprint.</description>
       
     </item>

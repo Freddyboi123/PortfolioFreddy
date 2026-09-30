@@ -4,6 +4,8 @@ description = "Weekly notes from the AI-Driven Applications elective: RAG, LLM A
 summary = "Weekly notes from the AI-Driven Applications elective: RAG, LLM APIs, code agents, spec-driven development, security, ethics and MCP."
 weight = 1
 orderByWeight = true
+course_code = "AIDA"
+accent = "coral"
 [cascade]
   showSummary = true
 +++

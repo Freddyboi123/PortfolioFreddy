@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Requirements on Frederik</title>
-    <link>http://localhost:1313/tags/requirements/</link>
+    <link>http://localhost:1320/tags/requirements/</link>
     <description>Recent content in Requirements on Frederik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 </copyright>
-    <lastBuildDate>Mon, 31 Aug 2026 16:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/requirements/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Aug 2026 16:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1320/tags/requirements/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Week 36: Requirements Specification</title>
-      <link>http://localhost:1313/posts/sys/week-36/</link>
+      <link>http://localhost:1320/posts/sys/week-36/</link>
       <pubDate>Mon, 31 Aug 2026 16:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/sys/week-36/</guid>
+      <guid>http://localhost:1320/posts/sys/week-36/</guid>
       <description>Functional and non-functional requirements, user stories and INVEST, acceptance criteria, Planning Poker, story points vs. T-shirt sizes, MoSCoW and the Definition of Done.</description>
       
     </item>

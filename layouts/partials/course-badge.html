@@ -1,0 +1,10 @@
+{{/* Shows which course a post belongs to and links back to it. Renders nothing outside a course section. */}}
+{{ with .CurrentSection }}
+  {{ with .Params.course_code }}
+    <a class="course-badge course--{{ $.CurrentSection.Params.accent }}" href="{{ $.CurrentSection.RelPermalink }}">
+      <span class="course-badge-code">{{ . }}</span>
+      {{ with $.Weight }}<span class="course-badge-week">Week {{ . }}</span>{{ end }}
+      <span class="course-badge-back" aria-hidden="true">← All weeks</span>
+    </a>
+  {{ end }}
+{{ end }}

@@ -1,0 +1,66 @@
+{{ define "main" }}
+  {{ $accent := .Params.accent | default "coral" }}
+  <div class="blog-list">
+    {{ if .Params.course_code }}
+      {{/* A course: coloured header, then one row per week */}}
+      <header class="blog-header course--{{ $accent }}">
+        <a class="blog-back" href="{{ .Parent.RelPermalink }}">← All courses</a>
+        <p class="blog-kicker"><span class="course-dot"></span>{{ .Params.course_code }} · Course notes</p>
+        <h1>{{ .Title }}</h1>
+        {{ with .Content }}<div class="blog-intro">{{ . }}</div>{{ end }}
+      </header>
+      <ol class="week-list course--{{ $accent }}">
+        {{ range .Pages.ByWeight }}
+          <li>
+            <a class="week-row" href="{{ .RelPermalink }}">
+              <span class="week-number"><small>Week</small>{{ .Weight }}</span>
+              <span class="week-copy">
+                <strong>{{ replaceRE `^Week \d+:\s*` "" .Title }}</strong>
+                {{ with .Summary }}<span class="week-summary">{{ . | plainify }}</span>{{ end }}
+                <span class="week-date">{{ .Date | time.Format ":date_long" }}</span>
+              </span>
+              <span class="week-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        {{ end }}
+      </ol>
+    {{ else }}
+      {{/* The blog root: course cards, then any standalone posts */}}
+      <header class="blog-header">
+        <p class="blog-kicker">Writing</p>
+        <h1>{{ .Title }}</h1>
+        {{ with .Content }}<div class="blog-intro">{{ . }}</div>{{ end }}
+      </header>
+      {{ with .Sections.ByWeight }}
+        <h2 class="blog-subheading">Courses</h2>
+        <div class="course-grid">
+          {{ range . }}
+            {{ $weeks := .RegularPages.ByWeight }}
+            <a class="course-card course--{{ .Params.accent | default "coral" }}" href="{{ .RelPermalink }}">
+              <span class="course-card-art"><strong>{{ .Params.course_code | default .Title }}</strong></span>
+              <span class="course-card-copy">
+                <span class="course-card-meta">{{ len $weeks }} weekly notes{{ with $weeks }} · Weeks {{ (index . 0).Weight }}–{{ (index . (sub (len .) 1)).Weight }}{{ end }}</span>
+                <strong>{{ .Title }}</strong>
+                {{ with .Description }}<span class="course-card-desc">{{ . }}</span>{{ end }}
+                <span class="course-card-link">Open course <span aria-hidden="true">↗</span></span>
+              </span>
+            </a>
+          {{ end }}
+        </div>
+      {{ end }}
+      {{ with .RegularPages.ByDate.Reverse }}
+        <h2 class="blog-subheading">Other posts</h2>
+        <ul class="post-list">
+          {{ range . }}
+            <li>
+              <a class="post-row" href="{{ .RelPermalink }}">
+                <strong>{{ .Title }}</strong>
+                <span class="week-date">{{ .Date | time.Format ":date_long" }}</span>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    {{ end }}
+  </div>
+{{ end }}

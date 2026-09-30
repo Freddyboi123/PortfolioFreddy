@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CODEOWNERS on Frederik</title>
-    <link>http://localhost:1313/tags/codeowners/</link>
+    <link>http://localhost:1320/tags/codeowners/</link>
     <description>Recent content in CODEOWNERS on Frederik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 </copyright>
-    <lastBuildDate>Mon, 21 Sep 2026 16:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/codeowners/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Sep 2026 16:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1320/tags/codeowners/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Week 38: Project Start and Coworking with Agents</title>
-      <link>http://localhost:1313/posts/aida/week-38/</link>
+      <link>http://localhost:1320/posts/aida/week-38/</link>
       <pubDate>Fri, 18 Sep 2026 16:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/aida/week-38/</guid>
+      <guid>http://localhost:1320/posts/aida/week-38/</guid>
       <description>Kicking off the course project, and how teams of humans and AI agents can work in parallel safely using tickets, guardrails, Git worktrees and CODEOWNERS.</description>
       
     </item>
     
     <item>
       <title>Week 39: Reflecting on Our Scrum Practice</title>
-      <link>http://localhost:1313/posts/sys/week-39/</link>
+      <link>http://localhost:1320/posts/sys/week-39/</link>
       <pubDate>Mon, 21 Sep 2026 16:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/sys/week-39/</guid>
+      <guid>http://localhost:1320/posts/sys/week-39/</guid>
       <description>Second Sprint Review and Planning, and a deeper look at how we work: retrospectives, velocity, the Scrum board, backlogs, pull requests, acceptance criteria and sprint goals.</description>
       
     </item>

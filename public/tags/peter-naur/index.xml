@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Peter Naur on Frederik</title>
-    <link>http://localhost:1313/tags/peter-naur/</link>
+    <link>http://localhost:1320/tags/peter-naur/</link>
     <description>Recent content in Peter Naur on Frederik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 </copyright>
-    <lastBuildDate>Thu, 10 Sep 2026 16:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/peter-naur/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Sep 2026 16:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1320/tags/peter-naur/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Week 37: Spec-Driven Development and a Real-World Case</title>
-      <link>http://localhost:1313/posts/aida/week-37/</link>
+      <link>http://localhost:1320/posts/aida/week-37/</link>
       <pubDate>Thu, 10 Sep 2026 16:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/aida/week-37/</guid>
+      <guid>http://localhost:1320/posts/aida/week-37/</guid>
       <description>Why AI code agents need clear specifications, Peter Naur&amp;rsquo;s &amp;lsquo;Programming as Theory Building&amp;rsquo;, and a company case from Engestofte Gods.</description>
       
     </item>

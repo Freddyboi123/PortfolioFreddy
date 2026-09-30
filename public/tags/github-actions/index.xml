@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GitHub Actions on Frederik</title>
-    <link>http://localhost:1313/tags/github-actions/</link>
+    <link>http://localhost:1320/tags/github-actions/</link>
     <description>Recent content in GitHub Actions on Frederik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 </copyright>
-    <lastBuildDate>Fri, 28 Aug 2026 16:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/github-actions/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Aug 2026 16:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1320/tags/github-actions/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Week 35: RAG in Practice and Coding with Agents</title>
-      <link>http://localhost:1313/posts/aida/week-35/</link>
+      <link>http://localhost:1320/posts/aida/week-35/</link>
       <pubDate>Fri, 28 Aug 2026 16:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/aida/week-35/</guid>
+      <guid>http://localhost:1320/posts/aida/week-35/</guid>
       <description>Building a RAG chatbot into my portfolio, automating knowledge base updates, and a first look at AI code agents.</description>
       
     </item>

@@ -42,3 +42,56 @@ footer { width: min(1180px, calc(100% - 80px)); margin: 0 auto; border-top: 1px 
 .portfolio-contact { padding-top: 90px; padding-bottom: 90px; border-top: 1px solid var(--portfolio-line); }.portfolio-contact .portfolio-eyebrow { margin-bottom: 65px; }.portfolio-contact h2 { margin-bottom: 62px; }.portfolio-email { display: inline-flex; align-items: center; gap: 13px; padding-bottom: 10px; border-bottom: 2px solid var(--portfolio-accent); font-size: clamp(1.4rem, 3vw, 2.4rem); letter-spacing: -.04em; }.portfolio-contact-meta { display: flex; justify-content: space-between; margin-top: 115px; color: var(--portfolio-muted); font: .67rem 'DM Mono', monospace; }.portfolio-contact-meta span:last-child { display: flex; gap: 25px; }.portfolio-contact-meta a { color: var(--portfolio-ink); text-decoration: none; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 @media (max-width: 720px) { header, footer, #main-content { width: min(100% - 40px, 560px); } header .main-menu { min-height: 75px; }.portfolio-hero { min-height: 590px; padding-top: 65px; padding-bottom: 35px; }.portfolio-location { display: block; margin: 12px 0 0; }.portfolio-kicker { line-height: 1.6; }.portfolio-hero-foot { align-items: flex-start; gap: 35px; }.portfolio-hero-foot > p { font-size: .9rem; }.portfolio-portrait { width: 120px; height: 120px; padding: 4px; }.portfolio-section-heading { display: block; margin-bottom: 45px; }.portfolio-section-heading .portfolio-eyebrow { margin-bottom: 38px; }.portfolio-section { padding-top: 85px; padding-bottom: 90px; }.portfolio-project { display: block; padding: 25px 0 45px; }.portfolio-project-copy { padding-top: 25px; }.portfolio-project-copy h3 { font-size: 2rem; }.portfolio-project-art { aspect-ratio: 1.25; }.portfolio-about { display: block; padding-top: 80px; padding-bottom: 95px; }.portfolio-about .portfolio-eyebrow { margin-bottom: 38px; }.portfolio-about-copy { padding-top: 42px; }.portfolio-contact { padding-top: 70px; padding-bottom: 65px; }.portfolio-contact .portfolio-eyebrow { margin-bottom: 40px; }.portfolio-contact h2 { margin-bottom: 45px; }.portfolio-contact-meta { display: block; margin-top: 75px; line-height: 1.6; }.portfolio-contact-meta span:last-child { margin-top: 30px; gap: 18px; flex-wrap: wrap; } }
+/* Blog: courses and weekly posts. Each course has an accent (text colour) plus the pastel art colours used on the home page. */
+.course--coral { --course: rgb(var(--color-primary-700)); --course-art: #ed9b82; --course-art-ink: #6e2b1e; }
+.course--sage { --course: rgb(var(--color-secondary-700)); --course-art: #bdcda7; --course-art-ink: #3e5940; }
+html.dark .course--coral { --course: rgb(var(--color-primary-400)); }
+html.dark .course--sage { --course: rgb(var(--color-secondary-400)); }
+.blog-list { padding: 70px 0 110px; }
+.blog-header { max-width: 760px; margin-bottom: 60px; }
+.blog-header h1 { margin: 14px 0 18px; color: var(--portfolio-ink); font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 500; letter-spacing: -.06em; line-height: .95; }
+.blog-kicker, .blog-subheading, .blog-back, .course-card-meta, .week-number small, .week-date, .course-badge { font: 500 .68rem 'DM Mono', monospace; letter-spacing: .06em; text-transform: uppercase; }
+.blog-kicker { display: flex; align-items: center; gap: 9px; margin: 0; color: var(--course, var(--portfolio-muted)); }
+.course-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--course); }
+.blog-intro { color: var(--portfolio-muted); font-size: 1.05rem; line-height: 1.65; }
+.blog-intro p { margin: 0; }
+.blog-back { display: inline-block; margin-bottom: 28px; color: var(--portfolio-muted); text-decoration: none; }
+.blog-back:hover { color: var(--portfolio-ink); }
+.blog-subheading { margin: 0 0 22px; padding-bottom: 14px; border-bottom: 1px solid var(--portfolio-line); color: var(--portfolio-muted); font-weight: 500; }
+.course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-bottom: 80px; }
+.course-card { display: flex; flex-direction: column; border: 1px solid var(--portfolio-line); color: var(--portfolio-ink); text-decoration: none; transition: border-color .2s, transform .2s; }
+.course-card:hover { border-color: var(--course); transform: translateY(-3px); }
+.course-card-art { display: flex; align-items: center; justify-content: center; aspect-ratio: 2.1; background: var(--course-art); }
+.course-card-art strong { color: var(--course-art-ink); font-size: clamp(3.5rem, 7vw, 5.5rem); font-weight: 500; letter-spacing: -.08em; }
+.course-card-copy { display: flex; flex-direction: column; gap: 10px; padding: 24px 24px 26px; border-top: 4px solid var(--course); }
+.course-card-meta { color: var(--course); }
+.course-card-copy > strong { font-size: 1.6rem; font-weight: 500; letter-spacing: -.04em; line-height: 1.15; }
+.course-card-desc { color: var(--portfolio-muted); font-size: .95rem; line-height: 1.55; }
+.course-card-link { margin-top: 6px; font-weight: 700; }
+.course-card-link span { color: var(--course); }
+.week-list, .post-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--portfolio-line); }
+.week-list li, .post-list li { margin: 0; padding: 0; border-bottom: 1px solid var(--portfolio-line); }
+.week-list li::before, .post-list li::before { content: none; }
+.week-row { display: grid; grid-template-columns: 110px 1fr 30px; gap: 28px; align-items: start; padding: 28px 12px 28px 0; border-left: 4px solid transparent; color: var(--portfolio-ink); text-decoration: none; transition: background .2s, border-color .2s, padding .2s; }
+.week-row:hover { padding-left: 16px; border-left-color: var(--course); background: rgba(var(--color-neutral-500), .08); }
+.week-number { display: flex; flex-direction: column; color: var(--course); font-size: 3.2rem; font-weight: 500; letter-spacing: -.06em; line-height: 1; }
+.week-number small { margin-bottom: 6px; color: var(--portfolio-muted); letter-spacing: .06em; }
+.week-copy { display: flex; flex-direction: column; gap: 8px; }
+.week-copy strong { font-size: 1.35rem; font-weight: 600; letter-spacing: -.02em; line-height: 1.25; }
+.week-summary { max-width: 640px; color: var(--portfolio-muted); line-height: 1.55; }
+.week-date { color: var(--portfolio-faint); }
+.week-arrow { color: var(--course); font-size: 1.2rem; }
+.post-row { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 22px 0; color: var(--portfolio-ink); text-decoration: none; }
+.post-row strong { font-size: 1.15rem; font-weight: 600; }
+.post-row:hover strong { color: var(--portfolio-accent); }
+.course-badge { display: inline-flex; align-items: center; gap: 10px; margin: 30px 0 18px; padding: 6px 14px 6px 6px; border: 1px solid var(--course); border-radius: 30px; color: var(--portfolio-muted); text-decoration: none; }
+.course-badge-code { padding: 4px 10px; border-radius: 20px; background: var(--course-art); color: var(--course-art-ink); font-weight: 700; }
+.course-badge-week { color: var(--course); }
+.course-badge-back { padding-left: 10px; border-left: 1px solid var(--portfolio-line); }
+.course-badge:hover .course-badge-back { color: var(--portfolio-ink); }
+@media (max-width: 720px) { .blog-list { padding: 45px 0 80px; }.week-row { grid-template-columns: 64px 1fr; gap: 16px; }.week-number { font-size: 2.2rem; }.week-arrow { display: none; }.course-grid { grid-template-columns: 1fr; }.post-row { display: block; }.post-row .week-date { display: block; margin-top: 6px; } }
+/* The site-header width rule above also matches <header> elements inside pages; reset those. */
+#main-content header { width: auto; margin-left: 0; margin-right: 0; }
+#single_header h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 500; letter-spacing: -.045em; line-height: 1.05; }
+article[class*="course--"] details > summary { background: var(--course-art); color: var(--course-art-ink); }
+.blog-subheading + .post-list { border-top: 0; }

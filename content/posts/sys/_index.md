@@ -4,6 +4,8 @@ description = "Weekly notes from System Development: development models, Agile, 
 summary = "Weekly notes from System Development: development models, Agile, Scrum, requirements, and quality assurance in a real Scrum project."
 weight = 2
 orderByWeight = true
+course_code = "SYS"
+accent = "sage"
 [cascade]
   showSummary = true
 +++

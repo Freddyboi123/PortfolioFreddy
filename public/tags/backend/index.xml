@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Backend on Frederik</title>
-    <link>http://localhost:1313/tags/backend/</link>
+    <link>http://localhost:1320/tags/backend/</link>
     <description>Recent content in Backend on Frederik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 </copyright>
-    <lastBuildDate>Fri, 04 Sep 2026 16:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/backend/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Sep 2026 16:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1320/tags/backend/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Week 36: Integrating an LLM API into My Own Application</title>
-      <link>http://localhost:1313/posts/aida/week-36/</link>
+      <link>http://localhost:1320/posts/aida/week-36/</link>
       <pubDate>Fri, 04 Sep 2026 16:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/aida/week-36/</guid>
+      <guid>http://localhost:1320/posts/aida/week-36/</guid>
       <description>Treating an LLM as an external service: prompts, structured output, error handling, and building an AI assignment-feedback app.</description>
       
     </item>
