@@ -7,14 +7,64 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 </copyright>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Sep 2026 09:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>ADR</title>
-      <link>http://localhost:1313/tags/adr/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Quality Assurance</title>
+      <link>http://localhost:1313/tags/quality-assurance/</link>
+      <pubDate>Mon, 28 Sep 2026 09:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/tags/adr/</guid>
+      <guid>http://localhost:1313/tags/quality-assurance/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Scrum</title>
+      <link>http://localhost:1313/tags/scrum/</link>
+      <pubDate>Mon, 28 Sep 2026 09:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/scrum/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>SYS</title>
+      <link>http://localhost:1313/tags/sys/</link>
+      <pubDate>Mon, 28 Sep 2026 09:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/sys/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Test Design</title>
+      <link>http://localhost:1313/tags/test-design/</link>
+      <pubDate>Mon, 28 Sep 2026 09:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/test-design/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Test Pyramid</title>
+      <link>http://localhost:1313/tags/test-pyramid/</link>
+      <pubDate>Mon, 28 Sep 2026 09:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/test-pyramid/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Testing</title>
+      <link>http://localhost:1313/tags/testing/</link>
+      <pubDate>Mon, 28 Sep 2026 09:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/testing/</guid>
       <description></description>
       
     </item>
@@ -22,7 +72,7 @@
     <item>
       <title>AIDA</title>
       <link>http://localhost:1313/tags/aida/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 25 Sep 2026 16:00:00 +0200</pubDate>
       
       <guid>http://localhost:1313/tags/aida/</guid>
       <description></description>
@@ -30,59 +80,9 @@
     </item>
     
     <item>
-      <title>API</title>
-      <link>http://localhost:1313/tags/api/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/api/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Backend</title>
-      <link>http://localhost:1313/tags/backend/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/backend/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Claude Code</title>
-      <link>http://localhost:1313/tags/claude-code/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/claude-code/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Code Agents</title>
-      <link>http://localhost:1313/tags/code-agents/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/code-agents/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>CODEOWNERS</title>
-      <link>http://localhost:1313/tags/codeowners/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/codeowners/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Copyright</title>
       <link>http://localhost:1313/tags/copyright/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 25 Sep 2026 16:00:00 +0200</pubDate>
       
       <guid>http://localhost:1313/tags/copyright/</guid>
       <description></description>
@@ -90,19 +90,9 @@
     </item>
     
     <item>
-      <title>Dify</title>
-      <link>http://localhost:1313/tags/dify/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/dify/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Ethics</title>
       <link>http://localhost:1313/tags/ethics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 25 Sep 2026 16:00:00 +0200</pubDate>
       
       <guid>http://localhost:1313/tags/ethics/</guid>
       <description></description>
@@ -112,7 +102,7 @@
     <item>
       <title>EU AI Act</title>
       <link>http://localhost:1313/tags/eu-ai-act/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 25 Sep 2026 16:00:00 +0200</pubDate>
       
       <guid>http://localhost:1313/tags/eu-ai-act/</guid>
       <description></description>
@@ -120,109 +110,9 @@
     </item>
     
     <item>
-      <title>Git</title>
-      <link>http://localhost:1313/tags/git/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/git/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Git Worktrees</title>
-      <link>http://localhost:1313/tags/git-worktrees/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/git-worktrees/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>GitHub Actions</title>
-      <link>http://localhost:1313/tags/github-actions/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/github-actions/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>http://localhost:1313/tags/hugo/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/hugo/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>JSON</title>
-      <link>http://localhost:1313/tags/json/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/json/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>LLM</title>
-      <link>http://localhost:1313/tags/llm/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/llm/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Peter Naur</title>
-      <link>http://localhost:1313/tags/peter-naur/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/peter-naur/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Project</title>
-      <link>http://localhost:1313/tags/project/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/project/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Prompt Engineering</title>
-      <link>http://localhost:1313/tags/prompt-engineering/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/prompt-engineering/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>RAG</title>
-      <link>http://localhost:1313/tags/rag/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/rag/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Secrets</title>
       <link>http://localhost:1313/tags/secrets/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 25 Sep 2026 16:00:00 +0200</pubDate>
       
       <guid>http://localhost:1313/tags/secrets/</guid>
       <description></description>
@@ -232,7 +122,7 @@
     <item>
       <title>Security</title>
       <link>http://localhost:1313/tags/security/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 25 Sep 2026 16:00:00 +0200</pubDate>
       
       <guid>http://localhost:1313/tags/security/</guid>
       <description></description>
@@ -240,9 +130,139 @@
     </item>
     
     <item>
+      <title>Sustainability</title>
+      <link>http://localhost:1313/tags/sustainability/</link>
+      <pubDate>Fri, 25 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/sustainability/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Code Review</title>
+      <link>http://localhost:1313/tags/code-review/</link>
+      <pubDate>Mon, 21 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/code-review/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>CODEOWNERS</title>
+      <link>http://localhost:1313/tags/codeowners/</link>
+      <pubDate>Mon, 21 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/codeowners/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Project</title>
+      <link>http://localhost:1313/tags/project/</link>
+      <pubDate>Mon, 21 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/project/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Retrospective</title>
+      <link>http://localhost:1313/tags/retrospective/</link>
+      <pubDate>Mon, 21 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/retrospective/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Velocity</title>
+      <link>http://localhost:1313/tags/velocity/</link>
+      <pubDate>Mon, 21 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/velocity/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Code Agents</title>
+      <link>http://localhost:1313/tags/code-agents/</link>
+      <pubDate>Fri, 18 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/code-agents/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>http://localhost:1313/tags/git/</link>
+      <pubDate>Fri, 18 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/git/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Git Worktrees</title>
+      <link>http://localhost:1313/tags/git-worktrees/</link>
+      <pubDate>Fri, 18 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/git-worktrees/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Sprint Planning</title>
+      <link>http://localhost:1313/tags/sprint-planning/</link>
+      <pubDate>Mon, 14 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/sprint-planning/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Sprint Review</title>
+      <link>http://localhost:1313/tags/sprint-review/</link>
+      <pubDate>Mon, 14 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/sprint-review/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>ADR</title>
+      <link>http://localhost:1313/tags/adr/</link>
+      <pubDate>Thu, 10 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/adr/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Peter Naur</title>
+      <link>http://localhost:1313/tags/peter-naur/</link>
+      <pubDate>Thu, 10 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/peter-naur/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>Spec-Driven Development</title>
       <link>http://localhost:1313/tags/spec-driven-development/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 10 Sep 2026 16:00:00 +0200</pubDate>
       
       <guid>http://localhost:1313/tags/spec-driven-development/</guid>
       <description></description>
@@ -250,11 +270,251 @@
     </item>
     
     <item>
-      <title>Sustainability</title>
-      <link>http://localhost:1313/tags/sustainability/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Definition of Done</title>
+      <link>http://localhost:1313/tags/definition-of-done/</link>
+      <pubDate>Mon, 07 Sep 2026 16:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/tags/sustainability/</guid>
+      <guid>http://localhost:1313/tags/definition-of-done/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>GitHub Projects</title>
+      <link>http://localhost:1313/tags/github-projects/</link>
+      <pubDate>Mon, 07 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/github-projects/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Sprint Zero</title>
+      <link>http://localhost:1313/tags/sprint-zero/</link>
+      <pubDate>Mon, 07 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/sprint-zero/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>API</title>
+      <link>http://localhost:1313/tags/api/</link>
+      <pubDate>Fri, 04 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/api/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Backend</title>
+      <link>http://localhost:1313/tags/backend/</link>
+      <pubDate>Fri, 04 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/backend/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>JSON</title>
+      <link>http://localhost:1313/tags/json/</link>
+      <pubDate>Fri, 04 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/json/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>LLM</title>
+      <link>http://localhost:1313/tags/llm/</link>
+      <pubDate>Fri, 04 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/llm/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Prompt Engineering</title>
+      <link>http://localhost:1313/tags/prompt-engineering/</link>
+      <pubDate>Fri, 04 Sep 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/prompt-engineering/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>FURPS</title>
+      <link>http://localhost:1313/tags/furps/</link>
+      <pubDate>Mon, 31 Aug 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/furps/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>INVEST</title>
+      <link>http://localhost:1313/tags/invest/</link>
+      <pubDate>Mon, 31 Aug 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/invest/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>MoSCoW</title>
+      <link>http://localhost:1313/tags/moscow/</link>
+      <pubDate>Mon, 31 Aug 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/moscow/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Planning Poker</title>
+      <link>http://localhost:1313/tags/planning-poker/</link>
+      <pubDate>Mon, 31 Aug 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/planning-poker/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Requirements</title>
+      <link>http://localhost:1313/tags/requirements/</link>
+      <pubDate>Mon, 31 Aug 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/requirements/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>User Stories</title>
+      <link>http://localhost:1313/tags/user-stories/</link>
+      <pubDate>Mon, 31 Aug 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/user-stories/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Claude Code</title>
+      <link>http://localhost:1313/tags/claude-code/</link>
+      <pubDate>Fri, 28 Aug 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/claude-code/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Dify</title>
+      <link>http://localhost:1313/tags/dify/</link>
+      <pubDate>Fri, 28 Aug 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/dify/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>GitHub Actions</title>
+      <link>http://localhost:1313/tags/github-actions/</link>
+      <pubDate>Fri, 28 Aug 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/github-actions/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>RAG</title>
+      <link>http://localhost:1313/tags/rag/</link>
+      <pubDate>Fri, 28 Aug 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/rag/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Agile</title>
+      <link>http://localhost:1313/tags/agile/</link>
+      <pubDate>Mon, 24 Aug 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/agile/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Product Backlog</title>
+      <link>http://localhost:1313/tags/product-backlog/</link>
+      <pubDate>Mon, 24 Aug 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/product-backlog/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Sprint</title>
+      <link>http://localhost:1313/tags/sprint/</link>
+      <pubDate>Mon, 24 Aug 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/sprint/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>http://localhost:1313/tags/hugo/</link>
+      <pubDate>Fri, 21 Aug 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/hugo/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Agile Manifesto</title>
+      <link>http://localhost:1313/tags/agile-manifesto/</link>
+      <pubDate>Mon, 17 Aug 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/agile-manifesto/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>SDLC</title>
+      <link>http://localhost:1313/tags/sdlc/</link>
+      <pubDate>Mon, 17 Aug 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/sdlc/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Waterfall</title>
+      <link>http://localhost:1313/tags/waterfall/</link>
+      <pubDate>Mon, 17 Aug 2026 16:00:00 +0200</pubDate>
+      
+      <guid>http://localhost:1313/tags/waterfall/</guid>
       <description></description>
       
     </item>

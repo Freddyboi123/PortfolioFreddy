@@ -10,22 +10,22 @@
     <lastBuildDate>Fri, 28 Aug 2026 16:00:00 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/rag/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>AI-Driven Applications, Week 35: RAG in Practice and Coding with Agents</title>
-      <link>http://localhost:1313/posts/aida-week-35/</link>
-      <pubDate>Fri, 28 Aug 2026 16:00:00 +0200</pubDate>
+      <title>Week 34: Getting Started and My First RAG Chatbot</title>
+      <link>http://localhost:1313/posts/aida/week-34/</link>
+      <pubDate>Fri, 21 Aug 2026 16:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/aida-week-35/</guid>
-      <description>Building a RAG chatbot into my portfolio, automating knowledge base updates, and a first look at AI code agents.</description>
+      <guid>http://localhost:1313/posts/aida/week-34/</guid>
+      <description>Course kickoff, setting up this portfolio with Hugo and Blowfish, and an introduction to Retrieval-Augmented Generation.</description>
       
     </item>
     
     <item>
-      <title>AI-Driven Applications, Week 34: Getting Started and My First RAG Chatbot</title>
-      <link>http://localhost:1313/posts/aida-week-34/</link>
-      <pubDate>Fri, 21 Aug 2026 16:00:00 +0200</pubDate>
+      <title>Week 35: RAG in Practice and Coding with Agents</title>
+      <link>http://localhost:1313/posts/aida/week-35/</link>
+      <pubDate>Fri, 28 Aug 2026 16:00:00 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/aida-week-34/</guid>
-      <description>Course kickoff, setting up this portfolio with Hugo and Blowfish, and an introduction to Retrieval-Augmented Generation.</description>
+      <guid>http://localhost:1313/posts/aida/week-35/</guid>
+      <description>Building a RAG chatbot into my portfolio, automating knowledge base updates, and a first look at AI code agents.</description>
       
     </item>
     
