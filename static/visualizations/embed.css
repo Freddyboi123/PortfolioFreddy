@@ -1,0 +1,8 @@
+/* Overrides for when a visualization from the AdvancedPrograming repo is embedded in a blog post.
+   The files next to this one are copies of Visual.html/Visual.js from the repo; only these two lines are added to each page. */
+body { min-height: 0; padding: 16px; }
+#wrap { flex-wrap: wrap; }
+#mapCard { flex: 1 1 520px; min-width: 0; }
+#mapCard svg { width: 100%; height: auto; }
+#side { flex: 1 1 300px; width: auto; max-width: 420px; }
+@media (max-width: 860px) { #side { max-width: none; } }

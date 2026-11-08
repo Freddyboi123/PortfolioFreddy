@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<title>A* – city grid</title>
+<style>
+    :root {
+        --bg1: #eef2f8;
+        --bg2: #dfe7f3;
+        --card: #ffffff;
+        --text: #1e293b;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --accent: #4f46e5;
+
+        --open: #f1f5f9;
+        --wall: #334155;
+        --city: #c7d2fe;
+        --queue: #60a5fa;
+        --current: #f59e0b;
+        --visited: #34d399;
+        --path: #e11d48;
+        --better: #10b981;
+        --worse: #f43f5e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        padding: 24px;
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        color: var(--text);
+        background: linear-gradient(160deg, var(--bg1), var(--bg2));
+        min-height: 100vh;
+    }
+
+    header { margin-bottom: 16px; }
+    header h1 { margin: 0; font-size: 26px; letter-spacing: -0.5px; }
+    header p { margin: 4px 0 0; color: var(--muted); }
+
+    .card {
+        background: var(--card);
+        border-radius: 14px;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, .06), 0 8px 24px rgba(15, 23, 42, .08);
+        padding: 14px 16px;
+    }
+    .card h3 {
+        margin: 0 0 10px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--muted);
+    }
+
+    #toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+    #toolbar label { font-size: 13px; color: var(--muted); font-weight: 600; }
+    .group { display: flex; align-items: center; gap: 6px; }
+    .spacer { flex: 1; }
+
+    select, button {
+        font: inherit;
+        font-size: 14px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        padding: 6px 12px;
+        background: #f8fafc;
+        color: var(--text);
+        cursor: pointer;
+        transition: background .15s, transform .05s, box-shadow .15s;
+    }
+    select:hover, button:hover:not(:disabled) { background: #eef2ff; }
+    button:active:not(:disabled) { transform: translateY(1px); }
+    button:disabled { opacity: .4; cursor: default; }
+    button.primary {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: white;
+        box-shadow: 0 2px 8px rgba(79, 70, 229, .35);
+    }
+    button.primary:hover:not(:disabled) { background: #4338ca; }
+    input[type=range] { accent-color: var(--accent); width: 90px; }
+    input[type=checkbox] { accent-color: var(--accent); width: 16px; height: 16px; }
+
+    #progress {
+        flex-basis: 100%;
+        height: 6px;
+        background: var(--border);
+        border-radius: 3px;
+        overflow: hidden;
+    }
+    #progressBar {
+        height: 100%;
+        width: 0;
+        background: linear-gradient(90deg, var(--accent), #8b5cf6);
+        transition: width .3s ease;
+    }
+    #stepLabel { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+    #wrap { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+    #mapCard { padding: 12px; }
+    #side { width: 360px; display: flex; flex-direction: column; gap: 16px; }
+
+    svg { display: block; border-radius: 10px; }
+
+    .cell rect.bg { fill: var(--open); stroke: white; stroke-width: 3; transition: fill .3s; }
+    .cell.wall rect.bg { fill: var(--wall); cursor: default; }
+    .cell.city rect.bg { fill: var(--city); stroke: var(--accent); }
+    .cell.queue rect.bg { fill: var(--queue); }
+    .cell.visited rect.bg { fill: var(--visited); }
+    .cell.current rect.bg { fill: var(--current); }
+    .cell.path rect.bg { fill: var(--path); }
+
+    .cell rect.check { fill: none; stroke-width: 0; transition: stroke-width .2s; pointer-events: none; }
+    .cell.better rect.check { stroke: var(--better); stroke-width: 5; }
+    .cell.worse rect.check { stroke: var(--worse); stroke-width: 5; stroke-dasharray: 6 4; }
+
+    .cell rect.ring { fill: none; stroke: var(--current); stroke-width: 3; opacity: 0; pointer-events: none; }
+    .cell.current rect.ring { animation: pulse 1.2s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes pulse {
+        from { opacity: .9; transform: scale(1); }
+        to   { opacity: 0;  transform: scale(1.45); }
+    }
+
+    .cell text { pointer-events: none; font-variant-numeric: tabular-nums; }
+    .cell .f { font-size: 15px; font-weight: 700; fill: #0f172a; }
+    .cell .g, .cell .h { font-size: 10px; font-weight: 600; fill: #475569; }
+    .cell .hint { font-size: 12px; fill: #94a3b8; }
+    .cell.queue text, .cell.visited text, .cell.current text, .cell.path text { fill: white; }
+    .cell .cityName { font-size: 9px; font-weight: 700; fill: #3730a3; }
+    .cell .tag { font-size: 18px; font-weight: 800; fill: var(--accent); }
+    .cell.queue .tag, .cell.visited .tag, .cell.current .tag, .cell.path .tag { fill: white; }
+
+    .path-line { fill: none; stroke: white; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round;
+                 stroke-dasharray: 10 8; animation: flow 0.8s linear infinite; pointer-events: none; }
+    @keyframes flow { to { stroke-dashoffset: -18; } }
+
+    #legend { display: flex; flex-wrap: wrap; gap: 14px; margin: 10px 4px 2px; font-size: 13px; color: var(--muted); }
+    #legend span::before {
+        content: ""; display: inline-block; width: 12px; height: 12px; border-radius: 3px;
+        margin-right: 6px; vertical-align: -1px; background: var(--c);
+    }
+
+    #msg {
+        border-left: 4px solid var(--accent);
+        padding: 8px 12px;
+        background: #f8fafc;
+        border-radius: 0 8px 8px 0;
+        font-size: 14px;
+        line-height: 1.45;
+        min-height: 64px;
+        transition: border-color .3s;
+    }
+    #msg.poll { border-color: var(--current); }
+    #msg.better { border-color: var(--better); }
+    #msg.worse, #msg.skip { border-color: var(--worse); }
+    #msg.done, #msg.stop { border-color: var(--path); }
+
+    #queue { display: flex; flex-wrap: wrap; gap: 6px; min-height: 30px; max-height: 150px; overflow-y: auto; }
+    .chip {
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: #eff6ff;
+        border: 1px solid #bfdbfe;
+        color: #1d4ed8;
+        font-size: 13px;
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+    }
+    .chip.next { background: var(--current); border-color: var(--current); color: white; }
+    .chip.stale { opacity: .45; text-decoration: line-through; }
+    .empty { color: var(--muted); font-size: 13px; font-style: italic; }
+
+    #stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .stat { background: #f8fafc; border-radius: 10px; padding: 8px 10px; }
+    .stat .num { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .stat .lbl { font-size: 12px; color: var(--muted); }
+
+    .formula { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); margin-top: 10px; }
+    .mini { position: relative; width: 44px; height: 44px; border-radius: 6px; background: var(--queue); color: white; flex: none; }
+    .mini b { position: absolute; inset: 0; display: grid; place-items: center; font-size: 15px; }
+    .mini i { position: absolute; top: 2px; font-style: normal; font-size: 10px; font-weight: 600; }
+
+    .hint { font-size: 12px; color: var(--muted); margin-top: 10px; line-height: 1.6; }
+    kbd { background: #f1f5f9; border: 1px solid var(--border); border-radius: 4px; padding: 0 5px; font-size: 11px; }
+</style>
+<link rel="stylesheet" href="../embed.css">
+</head>
+<body>
+<header>
+    <h1>A* search</h1>
+    <p>Shortest route between cities on a 12×12 grid, step by step</p>
+</header>
+<script src="Visual.js"></script>
+<script src="../embed.js"></script>
+</body>
+</html>

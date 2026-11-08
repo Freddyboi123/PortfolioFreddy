@@ -1,0 +1,16 @@
+{{/* One row per post: big number (weight) with a label ("Week", "Part"), title, summary and date. */}}
+<ol class="week-list course--{{ .accent }}">
+  {{ range .pages }}
+    <li>
+      <a class="week-row" href="{{ .RelPermalink }}">
+        <span class="week-number"><small>{{ $.label }}</small>{{ .Weight }}</span>
+        <span class="week-copy">
+          <strong>{{ replaceRE `^Week \d+:\s*` "" .Title }}</strong>
+          {{ with .Summary }}<span class="week-summary">{{ . | plainify }}</span>{{ end }}
+          <span class="week-date">{{ .Date | time.Format ":date_long" }}</span>
+        </span>
+        <span class="week-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+  {{ end }}
+</ol>

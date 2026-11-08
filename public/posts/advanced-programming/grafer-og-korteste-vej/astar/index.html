@@ -1,0 +1,1366 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  
+    <title>A*: shortest route between cities on a grid &middot; Frederik</title>
+    <meta name="title" content="A*: shortest route between cities on a grid &middot; Frederik">
+  
+
+  
+  
+  
+  
+  
+    
+  
+    
+  
+    
+  
+  
+    <meta name="description" content="How I implemented A* in Java on a 12×12 grid with 8 named cities, using Manhattan distance as the heuristic, and how the visualization compares it with Dijkstra.">
+  
+  
+    <meta name="keywords" content="AP,A*,Graphs,Shortest path,Heuristics,Java,Visualization,">
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/posts/advanced-programming/grafer-og-korteste-vej/astar/">
+  
+  
+
+  
+  
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/posts/advanced-programming/grafer-og-korteste-vej/astar/">
+	<meta property="og:site_name" content="Frederik">
+	<meta property="og:title" content="A*: shortest route between cities on a grid">
+	<meta property="og:description" content="How I implemented A* in Java on a 12×12 grid with 8 named cities, using Manhattan distance as the heuristic, and how the visualization compares it with Dijkstra.">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2026-11-08T12:30:00+01:00">
+		<meta property="article:modified_time" content="2026-11-08T12:30:00+01:00">
+		<meta property="article:tag" content="AP">
+		<meta property="article:tag" content="A*">
+		<meta property="article:tag" content="Graphs">
+		<meta property="article:tag" content="Shortest Path">
+		<meta property="article:tag" content="Heuristics">
+		<meta property="article:tag" content="Java">
+			<meta property="og:see_also" content="http://localhost:1313/posts/advanced-programming/grafer-og-korteste-vej/dijkstra/">
+
+  
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="A*: shortest route between cities on a grid">
+	<meta name="twitter:description" content="How I implemented A* in Java on a 12×12 grid with 8 named cities, using Manhattan distance as the heuristic, and how the visualization compares it with Dijkstra.">
+
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.cc804724936b78bc6fa28a4e3bbd11b46f98cf8ecbf786d54bfb493cb361759b251a696241402df13ea75bc95c1e675057db56cb06628b7e30edc3ca1310bb47.css"
+    integrity="sha512-zIBHJJNreLxvoopOO70RtG&#43;Yz47L94bVS/tJPLNhdZslGmliQUAt8T6nW8lcHmdQV9tWywZii34w7cPKExC7Rw==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.764f412f07ea715415e9123a5eb5f355429502d0b760146b9bcab854bc50829dee14488594acd935dfcdc6a0fe7e6d14d7bee914ebb9272b251aa238cb52c4dd.js"
+    integrity="sha512-dk9BLwfqcVQV6RI6XrXzVUKVAtC3YBRrm8q4VLxQgp3uFEiFlKzZNd/NxqD&#43;fm0U177pFOu5JyslGqI4y1LE3Q=="></script>
+  
+
+
+  
+  
+  
+  
+  
+  
+    
+    <script defer src="/lib/zoom/zoom.min.umd.b4b722fcb5d42f34f52b30a92f3521b69f403ca9d96d0d6179eb537cb870f5d83fdf1fe836688d95d5c99fefbda4170487711006e56051fa67ea00da10521721.js" integrity="sha512-tLci/LXULzT1KzCpLzUhtp9APKnZbQ1heetTfLhw9dg/3x/oNmiNldXJn&#43;&#43;9pBcEh3EQBuVgUfpn6gDaEFIXIQ=="></script>
+    
+    <script defer src="/js/medium-zoom.7f76d937fbb793f3703fedc60ee1e6345259cf2ada403d1876b806fffeaeb2ba6fc594eaccad75c96d5d2425e9fb833748bf1221b4d90d3cf78cf073e104f814.js" integrity="sha512-f3bZN/u3k/NwP&#43;3GDuHmNFJZzyraQD0YdrgG//6usrpvxZTqzK11yW1dJCXp&#43;4M3SL8SIbTZDTz3jPBz4QT4FA=="></script>
+  
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+    
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.99f39627b4e89544b263cce4eca1b0e27f7d2939c95ac76fec7aec92b4e87de1bffe6eefa8e2987b505891dfecefa32982e737fbe32233fc3e8d63b934da501b.js"
+      integrity="sha512-mfOWJ7TolUSyY8zk7KGw4n99KTnJWsdv7HrskrTofeG//m7vqOKYe1BYkd/s76Mpguc3&#43;&#43;MiM/w&#43;jWO5NNpQGw=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Blog",
+    "name": "A*: shortest route between cities on a grid",
+    "headline": "A*: shortest route between cities on a grid",
+    "description": "How I implemented A* in Java on a 12×12 grid with 8 named cities, using Manhattan distance as the heuristic, and how the visualization compares it with Dijkstra.",
+    "inLanguage": "en",
+    "url" : "http://localhost:1313/posts/advanced-programming/grafer-og-korteste-vej/astar/",
+    "author" : {
+      "@type": "Person",
+      "name": ""
+    },
+    "copyrightYear": "2026",
+    "dateCreated": "2026-11-08T12:30:00\u002b01:00",
+    "datePublished": "2026-11-08T12:30:00\u002b01:00",
+    
+    "dateModified": "2026-11-08T12:30:00\u002b01:00",
+    
+    "keywords": ["AP","A*","Graphs","Shortest path","Heuristics","Java","Visualization"],
+    
+    "mainEntityOfPage": "http://localhost:1313/posts/advanced-programming/grafer-og-korteste-vej/astar/",
+    "wordCount":  1929 
+  }]
+  </script>
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral bf-scrollbar">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        Skip to main content
+      </a>
+    </div>
+    <header>
+      
+      
+        <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
+  
+  
+    
+      <a href="/" class="text-base font-medium truncate min-w-0 shrink">
+        Go to main page
+      </a>
+    
+  
+  <div class="flex items-center ms-auto">
+    <div class="hidden md:flex">
+      <nav aria-label="Main menu" class="flex items-center gap-x-5 h-12">
+  
+    
+      
+  
+    <a
+      href="/posts/"
+      
+      class="flex items-center bf-icon-color-hover"
+      aria-label="Blog"
+      title="">
+      
+      
+        <span class="text-sm font-medium break-normal">
+          Blog
+        </span>
+      
+    </a>
+  
+
+    
+  
+
+  
+
+  
+
+  
+    <div class="flex items-center">
+      <button
+        id="appearance-switcher"
+        aria-label="Switch to dark appearance"
+        type="button"
+        class="text-sm bf-icon-color-hover"
+        title="Switch to dark appearance">
+        <div class="flex items-center justify-center dark:hidden">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+        </div>
+      </button>
+    </div>
+  
+
+  
+    <button
+      id="search-button"
+      aria-label="Search (/ or ⌘K)"
+      class="flex items-center gap-2 rounded-lg border bf-border-color bf-border-color-hover bg-neutral-100/50 px-2 py-1 text-sm text-neutral-500 transition-colors hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral-400 dark:hover:text-primary-400"
+      title="Search (/ or ⌘K)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+      <kbd
+        id="search-shortcut-hint"
+        class="pointer-events-none font-sans text-xs text-neutral-500 dark:text-neutral-400"
+        aria-hidden="true">
+        ⌘K
+      </kbd>
+    </button>
+  
+</nav>
+
+
+
+    </div>
+    <div class="flex md:hidden">
+      
+<div class="mobile-header-row mobile-menu-fullscreen relative flex items-center h-14 gap-4">
+  
+
+  
+    <button
+      id="appearance-switcher-mobile"
+      type="button"
+      aria-label="Switch to dark appearance"
+      title="Switch to dark appearance"
+      class="flex items-center justify-center text-neutral-900 hover:text-primary-600 dark:text-neutral-200 dark:hover:text-primary-400">
+      <div class="dark:hidden">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+      </div>
+      <div class="hidden dark:block">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+      </div>
+    </button>
+  
+
+  
+    <button
+      id="search-button-mobile"
+      aria-label="Search (/ or ⌘K)"
+      class="flex items-center justify-center bf-icon-color-hover"
+      title="Search (/ or ⌘K)">
+      <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+    </button>
+  
+
+  
+    <input type="checkbox" id="mobile-menu-toggle" autocomplete="off" class="hidden peer">
+    <label
+      for="mobile-menu-toggle"
+      tabindex="0"
+      role="button"
+      aria-expanded="false"
+      aria-controls="mobile-menu-dialog"
+      aria-label="Main menu"
+      class="flex items-center justify-center cursor-pointer bf-icon-color-hover">
+      <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+    </label>
+
+    <div
+      id="mobile-menu-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Main menu"
+      style="scrollbar-gutter: stable;"
+      class="z-50 invisible overflow-y-auto opacity-0 transition-[opacity,visibility] duration-300 peer-checked:visible peer-checked:opacity-100
+      
+        fixed inset-0 px-6 py-20 bg-neutral-50/97 dark:bg-neutral-900/99
+      
+      bf-scrollbar">
+      <label
+        for="mobile-menu-toggle"
+        tabindex="0"
+        role="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu-dialog"
+        class="fixed end-8 top-5 z-50 h-12 w-12 rounded-full flex items-center justify-center cursor-pointer select-none bf-icon-color-hover border bf-border-color bf-border-color-hover bg-neutral-50 dark:bg-neutral-900">
+        <span class="sr-only">Close menu</span>
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </label>
+      <nav
+        aria-label="Mobile menu"
+        class="mx-auto max-w-md space-y-6">
+        
+  
+    
+    <div class="px-2">
+      <div class="flex items-center gap-4">
+        <a
+          href="/posts/"
+          aria-label="Blog"
+          
+          class="flex grow items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
+          
+          <span title="" class="text-2xl font-bold tracking-tight">
+            Blog
+          </span>
+        </a>
+        
+      </div>
+
+      
+    </div>
+  
+
+        
+  
+
+        
+  
+
+      </nav>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+      
+    </header>
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+  
+  
+  
+  <article class="course--sky">
+    
+    
+
+    
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  <li class="hidden">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/"
+      >Frederik</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/posts/"
+      >Blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/posts/advanced-programming/"
+      >Advanced Programming</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/posts/advanced-programming/grafer-og-korteste-vej/"
+      >Grafer og korteste vej</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="hidden">
+    <a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href="/posts/advanced-programming/grafer-og-korteste-vej/astar/"
+      >A*: shortest route between cities on a grid</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      
+
+  
+    
+    
+    <a class="course-badge course--sky" href="/posts/advanced-programming/grafer-og-korteste-vej/">
+      <span class="course-badge-code">AP</span>
+      <span class="course-badge-week">Part 2</span>
+      <span class="course-badge-back" aria-hidden="true">← Grafer og korteste vej</span>
+    </a>
+  
+
+
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        A*: shortest route between cities on a grid
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-11-08T12:30:00&#43;01:00">8 November 2026</time><span class="px-2 text-primary-500">&middot;</span><span>1929 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">10 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+
+      </div>
+      
+        
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    
+      
+      
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+
+    
+  
+
+  
+    <div class="mb-5"></div>
+  
+
+      
+    </header>
+
+    
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+      
+      
+      
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+  <details
+    class="mt-2 mb-5 overflow-hidden rounded-lg ms-0 ps-5"
+    >
+    
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 -ms-5 ps-5 dark:bg-primary-800 dark:text-neutral-100">
+    Advanced Programming -
+    This article is part of a series.
+  </summary>
+  
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/posts/advanced-programming/grafer-og-korteste-vej/dijkstra/">
+          Part 1:
+          Dijkstra: shortest route on a directed road network
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        Part 2:
+        This Article
+      </div>
+    
+  
+
+
+  </details>
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<figure class="algo-demo not-prose">
+  <iframe src="/visualizations/astar/" title="Interactive A* visualization" height="980" loading="lazy"></iframe>
+  <figcaption>
+    <span>Try it: press Play, or step with ← →. Tick “Dijkstra mode” to compare with h = 0.</span>
+    <a href="/visualizations/astar/" target="_blank" rel="noopener">Open full screen ↗</a>
+  </figcaption>
+</figure>
+<script>
+  
+  if (!window.algoDemoReady) {
+    window.algoDemoReady = true;
+
+    
+    const fitAlgoDemos = () => {
+      const main = document.getElementById("main-content");
+      if (!main) return;
+      for (const fig of document.querySelectorAll(".algo-demo")) {
+        fig.style.width = "";
+        const width = main.getBoundingClientRect().right - fig.getBoundingClientRect().left;
+        if (width > fig.offsetWidth) fig.style.width = width + "px";
+      }
+    };
+    window.addEventListener("DOMContentLoaded", fitAlgoDemos);
+    window.addEventListener("resize", fitAlgoDemos);
+
+    window.addEventListener("message", (e) => {
+      const height = e.data && e.data.algoDemoHeight;
+      if (!height) return;
+      for (const frame of document.querySelectorAll(".algo-demo iframe")) {
+        if (frame.contentWindow === e.source) frame.style.height = height + "px";
+      }
+    });
+  }
+</script>
+
+<p>This is part 2 of the assignment <a href="/posts/advanced-programming/grafer-og-korteste-vej/" ><strong>Grafer og korteste vej</strong></a>. Part 1 is <a href="/posts/advanced-programming/grafer-og-korteste-vej/dijkstra/" >Dijkstra on a directed road network</a>. A* builds directly on it.</p>
+<p><strong>Code:</strong> <a href="https://github.com/Freddyboi123/AdvancedPrograming/tree/main/src/main/java/graphs/astar"  target="_blank" rel="noreferrer"><code>graphs/astar</code></a> in my <a href="https://github.com/Freddyboi123/AdvancedPrograming"  target="_blank" rel="noreferrer">AdvancedPrograming repository</a>.</p>
+
+<h2 class="relative group">The task
+    <div id="the-task" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-task" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<blockquote><p>Implement A* to find the shortest route between cities on a grid.</p>
+<ul>
+<li>Design your own grid, at least 8×8, with cities in some cells and roads between them</li>
+<li>Give your cities names, e.g. Nordby, Sydby, Østby and Vestby</li>
+<li>Find the shortest route from one city to another</li>
+<li>Make a visualization that makes sense. What is useful to see when you want to understand the algorithm?</li>
+</ul>
+</blockquote>
+<h2 class="relative group">How the code is organised
+    <div id="how-the-code-is-organised" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#how-the-code-is-organised" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">graphs/astar/
+</span></span><span class="line"><span class="cl">├── Astar.java               main: builds the grid and picks start and destination
+</span></span><span class="line"><span class="cl">├── logic/
+</span></span><span class="line"><span class="cl">│   ├── GridBuilder.java     the grid: roads, cities and neighbours
+</span></span><span class="line"><span class="cl">│   ├── AStarSolver.java     the heuristic, the algorithm and printing the result
+</span></span><span class="line"><span class="cl">│   └── entity/
+</span></span><span class="line"><span class="cl">│       ├── GridCell.java    one cell: row, col, optional city name, neighbours
+</span></span><span class="line"><span class="cl">│       └── NodeWithDist.java  a queue entry: (cell, g, h, f), sorted by f
+</span></span><span class="line"><span class="cl">├── Visual.html              the visualization (open in a browser)
+</span></span><span class="line"><span class="cl">└── Visual.js</span></span></code></pre></div></div>
+<p>It has the same structure as my Dijkstra solution: data, algorithm and entry point are kept apart.</p>
+
+<h2 class="relative group">Step 1: Drawing the grid as text
+    <div id="step-1-drawing-the-grid-as-text" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#step-1-drawing-the-grid-as-text" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>I wanted to be able to <em>see</em> the map in the code, so the grid is an array of strings with one character per cell:</p>
+<ul>
+<li><code>.</code> = no road (the cell isn&rsquo;t part of the graph)</li>
+<li><code>#</code> = road</li>
+<li>a letter = a city (a city is also a road cell)</li>
+</ul>
+<p><a href="https://github.com/Freddyboi123/AdvancedPrograming/blob/main/src/main/java/graphs/astar/logic/GridBuilder.java#L10-L36"  target="_blank" rel="noreferrer"><code>GridBuilder.java</code></a></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">NO_ROAD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;.&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">GRID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;.....N####..&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;.....#...#..&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;.B####...##K&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;.#...#.....#&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;.#...###M###&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;V###....#..#&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;#..######..#&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;#.....#....O&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;#.....#....#&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;###H####...#&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;.......#...#&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;.......S####&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Character</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CITY_NAMES</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="sc">&#39;N&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;Nordby&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;Sydby&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="sc">&#39;O&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;Østby&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;Vestby&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="sc">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;Midtby&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="sc">&#39;B&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;Bakkeby&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="sc">&#39;K&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;Kystby&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="sc">&#39;H&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;Havnby&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">);</span></span></span></code></pre></div></div>
+<p>The grid is <strong>12×12</strong> and has <strong>8 cities</strong>. I placed the roads so that the direct line is often blocked. For example, Nordby (top) and Sydby (bottom) can&rsquo;t be connected in a straight line, so the algorithm has to find a way around.</p>
+
+<h2 class="relative group">Step 2: From characters to a graph
+    <div id="step-2-from-characters-to-a-graph" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#step-2-from-characters-to-a-graph" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p><code>GridBuilder.build()</code> converts the text in two passes:</p>
+<ol>
+<li>It creates a <code>GridCell</code> for every cell that isn&rsquo;t <code>.</code>. The city name comes from <code>CITY_NAMES.get(symbol)</code>, which gives <code>null</code> for an ordinary road.</li>
+<li>It connects each cell to its neighbours <strong>up, down, left and right</strong> (4-connectivity), when the neighbour is inside the grid and is a road.</li>
+</ol>
+<p><a href="https://github.com/Freddyboi123/AdvancedPrograming/blob/main/src/main/java/graphs/astar/logic/GridBuilder.java#L38-L70"  target="_blank" rel="noreferrer"><code>GridBuilder.java</code></a></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">DIRECTIONS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="o">-</span><span class="n">1</span><span class="p">,</span><span class="w"> </span><span class="n">0</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">1</span><span class="p">,</span><span class="w"> </span><span class="n">0</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">1</span><span class="p">}};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">GridCell</span><span class="o">[][]</span><span class="w"> </span><span class="nf">build</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GRID</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">cols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GRID</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">GridCell</span><span class="o">[][]</span><span class="w"> </span><span class="n">cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GridCell</span><span class="o">[</span><span class="n">rows</span><span class="o">][</span><span class="n">cols</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">rows</span><span class="p">;</span><span class="w"> </span><span class="n">r</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">cols</span><span class="p">;</span><span class="w"> </span><span class="n">c</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">char</span><span class="w"> </span><span class="n">symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GRID</span><span class="o">[</span><span class="n">r</span><span class="o">]</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">symbol</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">NO_ROAD</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">cells</span><span class="o">[</span><span class="n">r</span><span class="o">][</span><span class="n">c</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GridCell</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">CITY_NAMES</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">symbol</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">rows</span><span class="p">;</span><span class="w"> </span><span class="n">r</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">cols</span><span class="p">;</span><span class="w"> </span><span class="n">c</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cells</span><span class="o">[</span><span class="n">r</span><span class="o">][</span><span class="n">c</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DIRECTIONS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">nr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">nc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="kt">boolean</span><span class="w"> </span><span class="n">insideGrid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nr</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">nr</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">nc</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">nc</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">cols</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">insideGrid</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">cells</span><span class="o">[</span><span class="n">nr</span><span class="o">][</span><span class="n">nc</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">cells</span><span class="o">[</span><span class="n">r</span><span class="o">][</span><span class="n">c</span><span class="o">]</span><span class="p">.</span><span class="na">addNeighbor</span><span class="p">(</span><span class="n">cells</span><span class="o">[</span><span class="n">nr</span><span class="o">][</span><span class="n">nc</span><span class="o">]</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cells</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>The <code>DIRECTIONS</code> array means I don&rsquo;t have to write four nearly identical <code>if</code> statements. Cells without a road stay <code>null</code>, so &ldquo;is there a road here?&rdquo; is just a <code>null</code> check.</p>
+<p>Each <code>GridCell</code> knows its position, its neighbours and, optionally, its name. <code>label()</code> makes the console output readable: a city is printed as <code>Midtby (4,8)</code> and a road cell as <code>(4,7)</code>.</p>
+<p><a href="https://github.com/Freddyboi123/AdvancedPrograming/blob/main/src/main/java/graphs/astar/logic/entity/GridCell.java"  target="_blank" rel="noreferrer"><code>GridCell.java</code></a></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isCity</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">label</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;(&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;,&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;)&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">isCity</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">position</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p><code>GridBuilder.cities(...)</code> collects all city cells in a <code>Map&lt;String, GridCell&gt;</code>, so <code>main</code> can pick start and destination by name:</p>
+<p><a href="https://github.com/Freddyboi123/AdvancedPrograming/blob/main/src/main/java/graphs/astar/Astar.java"  target="_blank" rel="noreferrer"><code>Astar.java</code></a></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">GridCell</span><span class="o">[][]</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GridBuilder</span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">GridCell</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GridBuilder</span><span class="p">.</span><span class="na">cities</span><span class="p">(</span><span class="n">grid</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">GridCell</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cities</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;Nordby&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">GridCell</span><span class="w"> </span><span class="n">destination</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cities</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;Sydby&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">AStarSolver</span><span class="p">.</span><span class="na">findShortestPath</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">destination</span><span class="p">);</span></span></span></code></pre></div></div>
+
+<h2 class="relative group">Step 3: The heuristic, Manhattan distance
+    <div id="step-3-the-heuristic-manhattan-distance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#step-3-the-heuristic-manhattan-distance" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>The difference between A* and Dijkstra is the <strong>heuristic</strong> <em>h</em>, an estimate of how far a cell is from the destination. Each queue entry has three numbers:</p>
+<ul>
+<li><strong>g</strong>: the actual distance from the start (the number of steps so far)</li>
+<li><strong>h</strong>: the estimated distance left to the destination</li>
+<li><strong>f = g + h</strong>: the estimated length of the whole route through this cell</li>
+</ul>
+<p>The queue is sorted on <strong>f</strong> instead of g. A* therefore prefers cells that are both close to the start <em>and</em> seem to lead towards the destination.</p>
+<p><a href="https://github.com/Freddyboi123/AdvancedPrograming/blob/main/src/main/java/graphs/astar/logic/entity/NodeWithDist.java"  target="_blank" rel="noreferrer"><code>NodeWithDist.java</code></a></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="nf">NodeWithDist</span><span class="p">(</span><span class="n">GridCell</span><span class="w"> </span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">gCost</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hCost</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">gCost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gCost</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">hCost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hCost</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">fCost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gCost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hCost</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compareTo</span><span class="p">(</span><span class="n">NodeWithDist</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">compare</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">fCost</span><span class="p">,</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="na">fCost</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>As the heuristic I use <strong>Manhattan distance</strong>, the number of rows plus the number of columns between two cells:</p>
+<p><a href="https://github.com/Freddyboi123/AdvancedPrograming/blob/main/src/main/java/graphs/astar/logic/AStarSolver.java#L10-L13"  target="_blank" rel="noreferrer"><code>AStarSolver.java</code></a></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">heuristic</span><span class="p">(</span><span class="n">GridCell</span><span class="w"> </span><span class="n">cell</span><span class="p">,</span><span class="w"> </span><span class="n">GridCell</span><span class="w"> </span><span class="n">destination</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">abs</span><span class="p">(</span><span class="n">destination</span><span class="p">.</span><span class="na">getRow</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cell</span><span class="p">.</span><span class="na">getRow</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">abs</span><span class="p">(</span><span class="n">destination</span><span class="p">.</span><span class="na">getCol</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cell</span><span class="p">.</span><span class="na">getCol</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>I chose Manhattan because it fits my grid exactly. You can only move up, down, left and right, and every step costs 1, so the Manhattan distance is the shortest possible route <em>if there were no gaps in the roads</em>. A real route can only be the same length or longer. The heuristic therefore <strong>never overestimates</strong>, which means it is <em>admissible</em>, and that guarantees A* still finds the shortest route.</p>
+
+<h2 class="relative group">Step 4: The algorithm
+    <div id="step-4-the-algorithm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#step-4-the-algorithm" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p><a href="https://github.com/Freddyboi123/AdvancedPrograming/blob/main/src/main/java/graphs/astar/logic/AStarSolver.java#L15-L49"  target="_blank" rel="noreferrer"><code>AStarSolver.java</code></a></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">findShortestPath</span><span class="p">(</span><span class="n">GridCell</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">GridCell</span><span class="w"> </span><span class="n">destination</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">GridCell</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">GridCell</span><span class="p">,</span><span class="w"> </span><span class="n">GridCell</span><span class="o">&gt;</span><span class="w"> </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">GridCell</span><span class="o">&gt;</span><span class="w"> </span><span class="n">visited</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">NodeWithDist</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">dist</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">NodeWithDist</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">heuristic</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">destination</span><span class="p">)));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">queue</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">NodeWithDist</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">node</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">destination</span><span class="p">))</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">visited</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">node</span><span class="p">))</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">visited</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">node</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">current</span><span class="p">.</span><span class="na">node</span><span class="p">.</span><span class="na">label</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; er nu visited (g = &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">current</span><span class="p">.</span><span class="na">gCost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;, f = &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">current</span><span class="p">.</span><span class="na">fCost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;)&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">GridCell</span><span class="w"> </span><span class="n">neighbor</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">current</span><span class="p">.</span><span class="na">node</span><span class="p">.</span><span class="na">getNeighbors</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">visited</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">neighbor</span><span class="p">))</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">newDist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current</span><span class="p">.</span><span class="na">gCost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">oldDist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dist</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">neighbor</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">newDist</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">oldDist</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">dist</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">neighbor</span><span class="p">,</span><span class="w"> </span><span class="n">newDist</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">prev</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">neighbor</span><span class="p">,</span><span class="w"> </span><span class="n">current</span><span class="p">.</span><span class="na">node</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">NodeWithDist</span><span class="p">(</span><span class="n">neighbor</span><span class="p">,</span><span class="w"> </span><span class="n">newDist</span><span class="p">,</span><span class="w"> </span><span class="n">heuristic</span><span class="p">(</span><span class="n">neighbor</span><span class="p">,</span><span class="w"> </span><span class="n">destination</span><span class="p">)));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;  Afstanden fra &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">start</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; til &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">neighbor</span><span class="p">.</span><span class="na">label</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; er nu &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">newDist</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">printResult</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">destination</span><span class="p">,</span><span class="w"> </span><span class="n">dist</span><span class="p">,</span><span class="w"> </span><span class="n">prev</span><span class="p">,</span><span class="w"> </span><span class="n">visited</span><span class="p">.</span><span class="na">size</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<p>This is deliberately the <strong>same skeleton as my Dijkstra</strong>: a <code>PriorityQueue</code> min-heap, a <code>dist</code> map with <code>getOrDefault(..., MAX_VALUE)</code> as ∞, a <code>visited</code> set with lazy deletion, edge relaxation, a <code>prev</code> map for the path, and an early exit when the destination is polled. Only three things are different:</p>
+<table>
+	<thead>
+			<tr>
+					<th></th>
+					<th>Dijkstra</th>
+					<th>A*</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Graph</td>
+					<td><code>WeightedNode</code> with a <code>Map</code> of road lengths</td>
+					<td><code>GridCell</code> with a <code>List</code> of neighbours</td>
+			</tr>
+			<tr>
+					<td>Cost of an edge</td>
+					<td>the length of the road (<code>roadLength</code>)</td>
+					<td>always <code>1</code> (one step)</td>
+			</tr>
+			<tr>
+					<td>The queue is sorted by</td>
+					<td><code>dist</code> (g)</td>
+					<td><code>fCost = g + h</code></td>
+			</tr>
+	</tbody>
+</table>
+<p>The <code>dist</code> map still stores <strong>g</strong>, the actual distance. <strong>h</strong> is only used to decide the <em>order</em> the cells are explored in. I think this is the most important point: the heuristic changes which cells you explore, not the length of the route you find.</p>
+<p>The path is rebuilt the same way as in Dijkstra, by following <code>prev</code> back from the destination. <code>printResult</code> also prints <strong>how many cells were visited</strong>, so the work can be compared with Dijkstra.</p>
+
+<h2 class="relative group">Result: Nordby → Sydby
+    <div id="result-nordby--sydby" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#result-nordby--sydby" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>The end of the console output from <code>Astar.main</code>:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Nordby (0,5) er nu visited (g = 0, f = 13)
+</span></span><span class="line"><span class="cl">  Afstanden fra Nordby til (1,5) er nu 1
+</span></span><span class="line"><span class="cl">  Afstanden fra Nordby til (0,6) er nu 1
+</span></span><span class="line"><span class="cl">(1,5) er nu visited (g = 1, f = 13)
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">(10,7) er nu visited (g = 16, f = 17)
+</span></span><span class="line"><span class="cl">  Afstanden fra Nordby til Sydby (11,7) er nu 17
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Korteste vej: Nordby (0,5) -&gt; (1,5) -&gt; (2,5) -&gt; (3,5) -&gt; (4,5) -&gt; (4,6) -&gt; (4,7) -&gt; Midtby (4,8) -&gt; (5,8) -&gt; (6,8) -&gt; (6,7) -&gt; (6,6) -&gt; (7,6) -&gt; (8,6) -&gt; (9,6) -&gt; (9,7) -&gt; (10,7) -&gt; Sydby (11,7)
+</span></span><span class="line"><span class="cl">Samlet afstand: 17 skridt
+</span></span><span class="line"><span class="cl">Antal visited celler: 26</span></span></code></pre></div></div>
+<p>At the start, h = |11 − 0| + |7 − 5| = <strong>13</strong>. Along the first part of the route, f stays at 13: each step down increases g by 1 and decreases h by 1. A* follows the cells with f = 13 first. Only when the road turns away from Sydby (out to Midtby) does f increase to 15 and then 17. That is when A* starts trying other cells.</p>
+
+<h3 class="relative group">A* vs. Dijkstra on the same grid
+    <div id="a-vs-dijkstra-on-the-same-grid" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#a-vs-dijkstra-on-the-same-grid" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>If the heuristic is set to 0, f = g, and A* turns into exactly Dijkstra. I ran the same route both ways:</p>
+<table>
+	<thead>
+			<tr>
+					<th></th>
+					<th>Route</th>
+					<th>Visited cells</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>A* (Manhattan)</td>
+					<td>17 steps</td>
+					<td><strong>26</strong></td>
+			</tr>
+			<tr>
+					<td>Dijkstra (h = 0)</td>
+					<td>17 steps</td>
+					<td><strong>57</strong></td>
+			</tr>
+	</tbody>
+</table>
+<p>They find the same shortest route, but A* needs fewer than half as many visited cells. Dijkstra spreads out evenly in all directions. A* is pulled towards Sydby.</p>
+
+<h2 class="relative group">The visualization
+    <div id="the-visualization" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-visualization" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p><a href="https://github.com/Freddyboi123/AdvancedPrograming/blob/main/src/main/java/graphs/astar/Visual.html"  target="_blank" rel="noreferrer"><code>Visual.html</code></a> + <a href="https://github.com/Freddyboi123/AdvancedPrograming/blob/main/src/main/java/graphs/astar/Visual.js"  target="_blank" rel="noreferrer"><code>Visual.js</code></a> is a step-by-step visualization in JavaScript (the demo at the top of this post) with the same grid and city names as <code>GridBuilder</code>. It uses the same snapshot approach as my Dijkstra visualization: the whole run is recorded first, so you can step both forwards and backwards.</p>
+<p>What&rsquo;s new in A* is <strong>g, h and f</strong>, so the visualization focuses on those numbers:</p>
+<table>
+	<thead>
+			<tr>
+					<th>What is shown</th>
+					<th>Why</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>g, h and f in each reached cell</strong></td>
+					<td>You can see why a cell is chosen: it has the lowest f, even if its g isn&rsquo;t the lowest.</td>
+			</tr>
+			<tr>
+					<td><strong>&ldquo;Show h everywhere&rdquo;</strong></td>
+					<td>Shows h in cells that haven&rsquo;t been reached yet too, so you can see the heuristic as a &ldquo;slope&rdquo; down towards the destination.</td>
+			</tr>
+			<tr>
+					<td><strong>Cell colours</strong>: no road / road / city / in queue / current / visited / shortest path</td>
+					<td>You can see the explored area stretch towards the destination, instead of spreading out evenly as in Dijkstra.</td>
+			</tr>
+			<tr>
+					<td><strong>The priority queue sorted by f</strong>, with old entries struck through</td>
+					<td>It shows that the queue is now ordered by f, and that lazy deletion works the same way as in Dijkstra.</td>
+			</tr>
+			<tr>
+					<td><strong>Progress</strong>: visited cells, in queue, path length</td>
+					<td>Gives numbers for how much work the algorithm has done.</td>
+			</tr>
+			<tr>
+					<td><strong>&ldquo;Dijkstra mode (h = 0)&rdquo;</strong></td>
+					<td>The most important feature. You can run the same route with and without the heuristic and see the difference straight away.</td>
+			</tr>
+	</tbody>
+</table>
+<p>The <strong>Dijkstra mode</strong> toggle was my most important design decision. The best way to understand what the heuristic does is to switch it off and see what happens. In the code, the toggle just replaces h with 0:</p>
+<p><a href="https://github.com/Freddyboi123/AdvancedPrograming/blob/main/src/main/java/graphs/astar/Visual.js#L35-L38"  target="_blank" rel="noreferrer"><code>Visual.js</code></a></p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">heuristic</span> <span class="o">=</span> <span class="p">(</span><span class="nx">r</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">goal</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">goal</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="nx">r</span><span class="p">)</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">goal</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="nx">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">runAstar</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">goal</span><span class="p">,</span> <span class="nx">useHeuristic</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">h</span> <span class="o">=</span> <span class="p">(</span><span class="nx">r</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nx">useHeuristic</span> <span class="o">?</span> <span class="nx">heuristic</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">goal</span><span class="p">)</span> <span class="o">:</span> <span class="mi">0</span><span class="p">);</span></span></span></code></pre></div></div>
+<p>The last step tells you how many of the open cells were visited (<em>&ldquo;A* visited 26 of … open cells. Toggle Dijkstra mode to compare.&rdquo;</em>). There are also <strong>From/To</strong> selectors for all 8 cities, a speed slider, a <strong>Result</strong> button that jumps to the end, and keyboard shortcuts.</p>
+
+<h2 class="relative group">How to run it
+    <div id="how-to-run-it" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#how-to-run-it" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li><strong>Console:</strong> run <code>graphs.astar.Astar</code>. Change the cities in <code>main</code>.</li>
+<li><strong>Visualization:</strong> use the <a href="/posts/advanced-programming/grafer-og-korteste-vej/astar/#the-top" >interactive demo at the top of this post</a>, or open <code>src/main/java/graphs/astar/Visual.html</code> from the repo in a browser.</li>
+</ul>
+<p>Back to the assignment: <a href="/posts/advanced-programming/grafer-og-korteste-vej/" >Grafer og korteste vej</a> · Previous: <a href="/posts/advanced-programming/grafer-og-korteste-vej/dijkstra/" >Part 1: Dijkstra</a>.</p>
+
+          
+          
+          
+        </div>
+        
+        
+  <details class="mt-2 mb-5 overflow-hidden rounded-lg ms-0 ps-5">
+    
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 -ms-5 ps-5 dark:bg-primary-800 dark:text-neutral-100">
+    Advanced Programming -
+    This article is part of a series.
+  </summary>
+  
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        <a href="/posts/advanced-programming/grafer-og-korteste-vej/dijkstra/">
+          Part 1:
+          Dijkstra: shortest route on a directed road network
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+        Part 2:
+        This Article
+      </div>
+    
+  
+
+
+  </details>
+
+
+        
+
+        
+
+      </div>
+    </section>
+
+    
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span class="flex flex-col">
+          
+        </span>
+        <span class="flex flex-col items-end">
+          
+            <a
+              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/posts/advanced-programming/grafer-og-korteste-vej/dijkstra/">
+              <span class="leading-6">
+                Dijkstra: shortest route on a directed road network&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+              </span>
+            </a>
+            
+              <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                <time datetime="2026-11-08T12:00:00&#43;01:00">8 November 2026</time>
+              </span>
+            
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+
+    </footer>
+  </article>
+
+        
+
+
+  
+
+
+
+
+
+
+<div
+  id="scroll-to-top"
+  class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200">
+  <a
+    href="#the-top"
+    class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2026
+          
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+      </p>
+    
+  </div>
+  
+  
+    <script>
+ window.difyChatbotConfig = {
+  token: 'Wfh0f5nhnUjfQ9xc',
+  baseUrl: 'https://udify.app',
+  inputs: {
+    
+    
+    
+    
+  },
+  systemVariables: {
+    
+    
+  },
+  userVariables: {
+    
+    
+  },
+ }
+</script>
+<script
+ src="https://udify.app/embed.min.js"
+ id="Wfh0f5nhnUjfQ9xc"
+ defer>
+</script>
+<style>
+  #dify-chatbot-bubble-button {
+    background-color: rgb(var(--color-primary-600)) !important;
+  }
+  #dify-chatbot-bubble-window {
+    width: 24rem !important;
+    height: 40rem !important;
+  }
+</style>
+  
+</footer>
+<div
+  id="search-wrapper"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Search"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          <span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span>
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          aria-label="Search"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        <span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span>
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+    
+    
+  </body>
+  
+</html>

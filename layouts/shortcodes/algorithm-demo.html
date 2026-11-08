@@ -1,0 +1,37 @@
+{{/* Embeds an interactive visualization from static/visualizations/<name>/ in an iframe that grows to fit its content.
+     Usage: {{< algorithm-demo name="dijkstra" title="..." caption="..." >}} */}}
+{{ $src := printf "visualizations/%s/" (.Get "name") | relURL }}
+<figure class="algo-demo not-prose">
+  <iframe src="{{ $src }}" title="{{ .Get "title" }}" height="{{ .Get "height" | default 980 }}" loading="lazy"></iframe>
+  <figcaption>
+    <span>{{ .Get "caption" }}</span>
+    <a href="{{ $src }}" target="_blank" rel="noopener">Open full screen ↗</a>
+  </figcaption>
+</figure>
+<script>
+  // Shared by every demo on the page, so only set up once.
+  if (!window.algoDemoReady) {
+    window.algoDemoReady = true;
+
+    // Stretch each demo from the text column to the right edge of the page content.
+    const fitAlgoDemos = () => {
+      const main = document.getElementById("main-content");
+      if (!main) return;
+      for (const fig of document.querySelectorAll(".algo-demo")) {
+        fig.style.width = "";
+        const width = main.getBoundingClientRect().right - fig.getBoundingClientRect().left;
+        if (width > fig.offsetWidth) fig.style.width = width + "px";
+      }
+    };
+    window.addEventListener("DOMContentLoaded", fitAlgoDemos);
+    window.addEventListener("resize", fitAlgoDemos);
+
+    window.addEventListener("message", (e) => {
+      const height = e.data && e.data.algoDemoHeight;
+      if (!height) return;
+      for (const frame of document.querySelectorAll(".algo-demo iframe")) {
+        if (frame.contentWindow === e.source) frame.style.height = height + "px";
+      }
+    });
+  }
+</script>

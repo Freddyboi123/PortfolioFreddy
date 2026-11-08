@@ -1,29 +1,27 @@
 {{ define "main" }}
   {{ $accent := .Params.accent | default "coral" }}
+  {{ $label := .Params.entry_label | default "Week" }}
   <div class="blog-list">
     {{ if .Params.course_code }}
-      {{/* A course: coloured header, then one row per week */}}
+      {{/* A course (weekly notes or assignments), or an assignment inside a course */}}
+      {{ $isTask := .Parent.Params.course_code }}
       <header class="blog-header course--{{ $accent }}">
-        <a class="blog-back" href="{{ .Parent.RelPermalink }}">← All courses</a>
-        <p class="blog-kicker"><span class="course-dot"></span>{{ .Params.course_code }} · Course notes</p>
+        <a class="blog-back" href="{{ .Parent.RelPermalink }}">← {{ if $isTask }}{{ .Parent.Title }}{{ else }}All courses{{ end }}</a>
+        <p class="blog-kicker"><span class="course-dot"></span>{{ .Params.course_code }} · {{ if $isTask }}Assignment{{ else if .Sections }}Assignments{{ else }}Course notes{{ end }}</p>
         <h1>{{ .Title }}</h1>
         {{ with .Content }}<div class="blog-intro">{{ . }}</div>{{ end }}
       </header>
-      <ol class="week-list course--{{ $accent }}">
-        {{ range .Pages.ByWeight }}
-          <li>
-            <a class="week-row" href="{{ .RelPermalink }}">
-              <span class="week-number"><small>Week</small>{{ .Weight }}</span>
-              <span class="week-copy">
-                <strong>{{ replaceRE `^Week \d+:\s*` "" .Title }}</strong>
-                {{ with .Summary }}<span class="week-summary">{{ . | plainify }}</span>{{ end }}
-                <span class="week-date">{{ .Date | time.Format ":date_long" }}</span>
-              </span>
-              <span class="week-arrow" aria-hidden="true">↗</span>
-            </a>
-          </li>
+      {{ with .Sections.ByWeight }}
+        {{/* A course split into assignments: one group per assignment, then its parts */}}
+        {{ range . }}
+          <section class="task-group">
+            <h2 class="blog-subheading task-heading"><a href="{{ .RelPermalink }}">{{ .Title }} <span aria-hidden="true">↗</span></a></h2>
+            {{ partial "entry-list.html" (dict "pages" .Pages.ByWeight "label" $label "accent" $accent) }}
+          </section>
         {{ end }}
-      </ol>
+      {{ else }}
+        {{ partial "entry-list.html" (dict "pages" .Pages.ByWeight "label" $label "accent" $accent) }}
+      {{ end }}
     {{ else }}
       {{/* The blog root: course cards, then any standalone posts */}}
       <header class="blog-header">
@@ -36,10 +34,15 @@
         <div class="course-grid">
           {{ range . }}
             {{ $weeks := .RegularPages.ByWeight }}
+            {{ $posts := len .RegularPagesRecursive }}
             <a class="course-card course--{{ .Params.accent | default "coral" }}" href="{{ .RelPermalink }}">
               <span class="course-card-art"><strong>{{ .Params.course_code | default .Title }}</strong></span>
               <span class="course-card-copy">
-                <span class="course-card-meta">{{ len $weeks }} weekly notes{{ with $weeks }} · Weeks {{ (index . 0).Weight }}–{{ (index . (sub (len .) 1)).Weight }}{{ end }}</span>
+                {{ with .Sections }}
+                  <span class="course-card-meta">{{ len . }} assignment{{ if ne (len .) 1 }}s{{ end }} · {{ $posts }} post{{ if ne $posts 1 }}s{{ end }}</span>
+                {{ else }}
+                  <span class="course-card-meta">{{ len $weeks }} weekly notes{{ with $weeks }} · Weeks {{ (index . 0).Weight }}–{{ (index . (sub (len .) 1)).Weight }}{{ end }}</span>
+                {{ end }}
                 <strong>{{ .Title }}</strong>
                 {{ with .Description }}<span class="course-card-desc">{{ . }}</span>{{ end }}
                 <span class="course-card-link">Open course <span aria-hidden="true">↗</span></span>

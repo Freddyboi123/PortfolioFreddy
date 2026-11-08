@@ -47,6 +47,18 @@ footer { width: min(1180px, calc(100% - 80px)); margin: 0 auto; border-top: 1px 
 .course--sage { --course: rgb(var(--color-secondary-700)); --course-art: #bdcda7; --course-art-ink: #3e5940; }
 html.dark .course--coral { --course: rgb(var(--color-primary-400)); }
 html.dark .course--sage { --course: rgb(var(--color-secondary-400)); }
+.course--sky { --course: #2f6a8f; --course-art: #a7c7dc; --course-art-ink: #1e4560; }
+html.dark .course--sky { --course: #8dbad6; }
+.task-group + .task-group { margin-top: 60px; }
+.task-heading a { color: var(--portfolio-ink); text-decoration: none; }
+.task-heading a span, .task-heading a:hover { color: var(--course); }
+.task-heading + .week-list { border-top: 0; }
+/* Interactive algorithm demos: the shortcode's script widens them from the text column to the page content's right edge. */
+.algo-demo { width: 100%; margin: 10px 0 50px; }
+.algo-demo iframe { display: block; width: 100%; border: 1px solid var(--portfolio-line); border-radius: 14px; background: #eef2f8; }
+.algo-demo figcaption { display: flex; justify-content: space-between; gap: 20px; margin-top: 12px; color: var(--portfolio-muted); font: 500 .68rem 'DM Mono', monospace; letter-spacing: .06em; text-transform: uppercase; }
+.algo-demo figcaption a { color: var(--course, var(--portfolio-accent)); text-decoration: none; white-space: nowrap; }
+@media (max-width: 720px) { .algo-demo figcaption { display: block; } .algo-demo figcaption a { display: block; margin-top: 6px; } }
 .blog-list { padding: 70px 0 110px; }
 .blog-header { max-width: 760px; margin-bottom: 60px; }
 .blog-header h1 { margin: 14px 0 18px; color: var(--portfolio-ink); font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 500; letter-spacing: -.06em; line-height: .95; }

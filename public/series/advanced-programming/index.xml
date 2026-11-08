@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Advanced Programming on Frederik</title>
+    <link>http://localhost:1313/series/advanced-programming/</link>
+    <description>Recent content in Advanced Programming on Frederik</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 </copyright>
+    <lastBuildDate>Sun, 08 Nov 2026 12:30:00 +0100</lastBuildDate><atom:link href="http://localhost:1313/series/advanced-programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Dijkstra: shortest route on a directed road network</title>
+      <link>http://localhost:1313/posts/advanced-programming/grafer-og-korteste-vej/dijkstra/</link>
+      <pubDate>Sun, 08 Nov 2026 12:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/advanced-programming/grafer-og-korteste-vej/dijkstra/</guid>
+      <description>How I implemented Dijkstra&amp;rsquo;s algorithm in Java on a road network of 8 cities on Zealand with weighted, directed roads, and how I visualized it step by step.</description>
+      
+    </item>
+    
+    <item>
+      <title>A*: shortest route between cities on a grid</title>
+      <link>http://localhost:1313/posts/advanced-programming/grafer-og-korteste-vej/astar/</link>
+      <pubDate>Sun, 08 Nov 2026 12:30:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/posts/advanced-programming/grafer-og-korteste-vej/astar/</guid>
+      <description>How I implemented A* in Java on a 12×12 grid with 8 named cities, using Manhattan distance as the heuristic, and how the visualization compares it with Dijkstra.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
